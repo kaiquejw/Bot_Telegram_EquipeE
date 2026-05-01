@@ -17,7 +17,7 @@ CONTAS = [
     {
         "nome": "Vanessa", 
         "secret_name": "SESSION_VANESSA",
-        "chat_id": -5134056015,
+        "chat_id": -1002742703600,
         "msg": "Vanessa X narizinho r4"
     },        
 
@@ -25,8 +25,8 @@ CONTAS = [
 ]
 
 # ⚠️ AJUSTE AQUI PARA O DIA DA SENHA ⚠️
-HORA_ALVO = 17
-MINUTO_ALVO = 12
+HORA_ALVO = 19
+MINUTO_ALVO = 00
 
 async def sniper_individual(conta, alvo):
     """Função otimizada para VELOCIDADE MÁXIMA (Modo Turbo)"""
@@ -74,7 +74,7 @@ async def sniper_individual(conta, alvo):
             # ⚠️ MUDANÇA 2: ESPERA INTELIGENTE ⚠️
             # Se faltar mais de 2 segundos, dorme um pouco.
             # Isso evita que o robô tome FloodWait por tentar cedo demais.
-            if diferenca > 0.0:
+            if diferenca > 0.1:
                 await asyncio.sleep(0.01)
                 continue
 
