@@ -13,30 +13,20 @@ API_HASH = os.environ.get('TELEGRAM_API_HASH')
 # ⚠️ MUDANÇA 1: JAQUELINE EM PRIMEIRO (PRIORIDADE MÁXIMA) ⚠️
 CONTAS = [
 
-
-        # 20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
-    {
-        "nome": "Gessiane", 
-        "secret_name": "SESSION_GESSIANE",
-        "chat_id": -1002443109385,
-        "msg": "GessianexSonata raio 2"
-    },
-
-
         # 20h30SENHA NORMAL 🚨  -1002704903786
-    #{
-    #    "nome": "Michele", 
-    #    "secret_name": "SESSION_MICHELE",
-    #    "chat_id": -1002704903786,
-    #    "msg": "Michele x Paquistão raio 3"
-    #}, 
+    {
+        "nome": "Michele", 
+        "secret_name": "SESSION_MICHELE",
+        "chat_id": -1002704903786,
+        "msg": "Michele x Paquistão raio 3"
+    }, 
 
 
 ]
 
 # ⚠️ AJUSTE AQUI PARA O DIA DA SENHA ⚠️
 HORA_ALVO = 20
-MINUTO_ALVO = 00
+MINUTO_ALVO = 30
 
 async def sniper_individual(conta, alvo):
     """Função otimizada para VELOCIDADE MÁXIMA (Modo Turbo)"""
@@ -121,7 +111,7 @@ async def sniper_individual(conta, alvo):
 
 async def main():
     agora = datetime.datetime.now()
-    alvo = agora.replace(hour=HORA_ALVO, minute=MINUTO_ALVO, second=0, microsecond=0)
+    alvo = agora.replace(hour=HORA_ALVO, minute=MINUTO_ALVO, second=1, microsecond=0)
     
     print(f"🔥 INICIANDO MODO TURBO ({len(CONTAS)} contas)")
     print(f"🎯 Alvo: {alvo.strftime('%H:%M:%S')}")
