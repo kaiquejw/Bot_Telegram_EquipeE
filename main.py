@@ -18,25 +18,25 @@ CONTAS = [
     {
         "nome": "Gessiane", 
         "secret_name": "SESSION_GESSIANE",
-        "chat_id": -5279282857,
-        "msg": "Gessiane x Sonata raio 2"
+        "chat_id": -1002443109385,
+        "msg": "GessianexSonata raio 2"
     },
 
 
         # 20h30SENHA NORMAL 🚨  -1002704903786
-    {
-        "nome": "Michele", 
-        "secret_name": "SESSION_MICHELE",
-        "chat_id": -5120968846,
-        "msg": "Michele x Paquistão raio 3"
-    }, 
+    #{
+    #    "nome": "Michele", 
+    #    "secret_name": "SESSION_MICHELE",
+    #    "chat_id": -1002704903786,
+    #    "msg": "Michele x Paquistão raio 3"
+    #}, 
 
 
 ]
 
 # ⚠️ AJUSTE AQUI PARA O DIA DA SENHA ⚠️
-HORA_ALVO = 15
-MINUTO_ALVO = 47
+HORA_ALVO = 20
+MINUTO_ALVO = 00
 
 async def sniper_individual(conta, alvo):
     """Função otimizada para VELOCIDADE MÁXIMA (Modo Turbo)"""
