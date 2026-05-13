@@ -17,7 +17,7 @@ CONTAS = [
     {
         "nome": "Thayna", 
         "secret_name": "SESSION_THAYNA",
-        "chat_id": -5188593476,
+        "chat_id": -1003533574600,
         "msg": "Thayna R5 X C7 Marcos"
     },
 
