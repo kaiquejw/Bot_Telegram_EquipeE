@@ -29,19 +29,11 @@ CONTAS = [
         "msg": "Mônica x jaçanã G11"
     },
 
-        # 20h00 Grupo senha normal -1003601357589
-    {
-        "nome": "Vitoria", 
-        "secret_name": "SESSION_VITORIA",
-        "chat_id": -5053220632,
-        "msg": "Vitória raio 6 Santos"
-    },
-
 ]
 
 # ⚠️ AJUSTE AQUI PARA O DIA DA SENHA ⚠️
-HORA_ALVO = 19
-MINUTO_ALVO = 30
+HORA_ALVO = 15
+MINUTO_ALVO = 32
 
 async def sniper_individual(conta, alvo):
     """Função otimizada para VELOCIDADE MÁXIMA (Modo Turbo)"""
