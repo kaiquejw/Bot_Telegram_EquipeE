@@ -13,12 +13,28 @@ API_HASH = os.environ.get('TELEGRAM_API_HASH')
 # ⚠️ MUDANÇA 1: JAQUELINE EM PRIMEIRO (PRIORIDADE MÁXIMA) ⚠️
 CONTAS = [
 
-        # Thayna de quarta feira 19h30 Senha normal impar vila independência -1003533574600
+        # 20h00 Grupo senha normal  -1003601357589
     {
-        "nome": "Thayna", 
-        "secret_name": "SESSION_THAYNA",
-        "chat_id": -1003533574600,
-        "msg": "Thayna R5 X C7 Marcos"
+        "nome": "Evelin", 
+        "secret_name": "SESSION_EVELIN",
+        "chat_id": -5118495844,
+        "msg": "Evelin X R10 raio 6"
+    },
+
+        # 20h20 Senha normal -1003875645355
+    {
+        "nome": "Monica", 
+        "secret_name": "SESSION_MONICA",
+        "chat_id": -4801139096,
+        "msg": "Mônica x jaçanã G11"
+    },
+
+        # 20h00 Grupo senha normal -1003601357589
+    {
+        "nome": "Vitoria", 
+        "secret_name": "SESSION_VITORIA",
+        "chat_id": -5053220632,
+        "msg": "Vitória raio 6 Santos"
     },
 
 ]
