@@ -15,27 +15,19 @@ CONTAS = [
 
 
 
-        # 20h20 Senha normal -1003875645355
-    {
-        "nome": "Monica", 
-        "secret_name": "SESSION_MONICA",
-        "chat_id": -1003875645355,
-        "msg": "Mônica x jaçanã G11"
-    },
-
         # 20h30 SENHA NORMAL 🚨 -1002704903786
-    #{
-    #    "nome": "Marly", 
-    #    "secret_name": "SESSION_MARLY",
-    #    "chat_id": -1002704903786,
-    #    "msg": "Marli x tico Raio 6"
-    #},    
+    {
+        "nome": "Marly", 
+        "secret_name": "SESSION_MARLY",
+        "chat_id": -1002704903786,
+        "msg": "Marli x tico Raio 6"
+    },    
 
 ]
 
 # ⚠️ AJUSTE AQUI PARA O DIA DA SENHA ⚠️
 HORA_ALVO = 20
-MINUTO_ALVO = 20
+MINUTO_ALVO = 30
 
 async def sniper_individual(conta, alvo):
     """Função otimizada para VELOCIDADE MÁXIMA (Modo Turbo)"""
@@ -120,7 +112,7 @@ async def sniper_individual(conta, alvo):
 
 async def main():
     agora = datetime.datetime.now()
-    alvo = agora.replace(hour=HORA_ALVO, minute=MINUTO_ALVO, second=0, microsecond=0)
+    alvo = agora.replace(hour=HORA_ALVO, minute=MINUTO_ALVO, second=1, microsecond=0)
     
     print(f"🔥 INICIANDO MODO TURBO ({len(CONTAS)} contas)")
     print(f"🎯 Alvo: {alvo.strftime('%H:%M:%S')}")
