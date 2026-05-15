@@ -14,12 +14,12 @@ API_HASH = os.environ.get('TELEGRAM_API_HASH')
 CONTAS = [
 
         # 20h00 Grupo senha normal  -1003601357589
-    #{
-    #    "nome": "Evelin", 
-    #    "secret_name": "SESSION_EVELIN",
-    #    "chat_id": -1003601357589,
-    #    "msg": "Evelin X R10 raio 6"
-    #},
+    {
+        "nome": "Evelin", 
+        "secret_name": "SESSION_EVELIN",
+        "chat_id": -1003601357589,
+        "msg": "Evelin X R10 raio 6"
+    },
 
         # 20h20 Senha normal -1003875645355
     #{
@@ -30,18 +30,18 @@ CONTAS = [
     #},
 
         # 20h30 SENHA NORMAL 🚨 -1002704903786
-    {
-        "nome": "Marly", 
-        "secret_name": "SESSION_MARLY",
-        "chat_id": -5168993425,
-        "msg": "Marli x tico Raio 6"
-    },    
+    #{
+    #    "nome": "Marly", 
+    #    "secret_name": "SESSION_MARLY",
+    #    "chat_id": -1002704903786,
+    #    "msg": "Marli x tico Raio 6"
+    #},    
 
 ]
 
 # ⚠️ AJUSTE AQUI PARA O DIA DA SENHA ⚠️
-HORA_ALVO = 18
-MINUTO_ALVO = 31
+HORA_ALVO = 20
+MINUTO_ALVO = 00
 
 async def sniper_individual(conta, alvo):
     """Função otimizada para VELOCIDADE MÁXIMA (Modo Turbo)"""
