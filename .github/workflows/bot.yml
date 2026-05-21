@@ -35,8 +35,10 @@ jobs:
           TELEGRAM_API_HASH: ${{ secrets.TELEGRAM_API_HASH }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           SESSION_EVELIN: ${{ secrets.SESSION_EVELIN }}
-          SESSION_MONICA: ${{ secrets.SESSION_MONICA }}
-          SESSION_MARLY: ${{ secrets.SESSION_MARLY }}
+          SESSION_MEL: ${{ secrets.SESSION_MEL }}
+          SESSION_LUCIANA: ${{ secrets.SESSION_LUCIANA }}
+          SESSION_GLAUCIA: ${{ secrets.SESSION_GLAUCIA }}
+          SESSION_LOIRA: ${{ secrets.SESSION_LOIRA }}
 
 
         run: |
