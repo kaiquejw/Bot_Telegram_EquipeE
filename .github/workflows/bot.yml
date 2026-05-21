@@ -36,10 +36,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           SESSION_EVELIN: ${{ secrets.SESSION_EVELIN }}
           SESSION_MEL: ${{ secrets.SESSION_MEL }}
-          SESSION_LUCIANA: ${{ secrets.SESSION_LUCIANA }}
           SESSION_GLAUCIA: ${{ secrets.SESSION_GLAUCIA }}
-          SESSION_LOIRA: ${{ secrets.SESSION_LOIRA }}
-
 
         run: |
           # Define fuso horário de SP para o Python saber a hora certa
