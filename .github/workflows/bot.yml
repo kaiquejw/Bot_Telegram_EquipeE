@@ -37,6 +37,7 @@ jobs:
           SESSION_EVELIN: ${{ secrets.SESSION_EVELIN }}
           SESSION_MEL: ${{ secrets.SESSION_MEL }}
           SESSION_GLAUCIA: ${{ secrets.SESSION_GLAUCIA }}
+          SESSION_TAMIS: ${{ secrets.SESSION_TAMIS }}
 
         run: |
           # Define fuso horário de SP para o Python saber a hora certa
