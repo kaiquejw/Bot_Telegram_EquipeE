@@ -13,20 +13,35 @@ API_HASH = os.environ.get('TELEGRAM_API_HASH')
 # ⚠️ MUDANÇA 1: JAQUELINE EM PRIMEIRO (PRIORIDADE MÁXIMA) ⚠️
 CONTAS = [
 
+        # 19h00 GRUPO DA SENHA NORMAL- DOBRA P3 LAVINIA -1002717347777
+    {
+        "nome": "Thaiane", 
+        "secret_name": "SESSION_THAIANE",
+        "chat_id": -5115402245,
+        "msg": "Thaiane x Assombroso R2 C4"
+    },
+
+        # 20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
+    {
+        "nome": "Scarlett", 
+        "secret_name": "SESSION_SCARLETT",
+        "chat_id": -5123879477,
+        "msg": "ScarlettxDaniel raio 0"
+    },
 
         # 20h30 SENHA NORMAL 🚨 -1002704903786
     {
-        "nome": "Tamis", 
-        "secret_name": "SESSION_TAMIS",
-        "chat_id": -1002704903786,
-        "msg": "Tamis x Biel R6"
+        "nome": "Viviane", 
+        "secret_name": "SESSION_VIVIANE",
+        "chat_id": -5107863814,
+        "msg": "Viviane/coelho raio 3"
     },
 
 ]
 
 # ⚠️ AJUSTE AQUI PARA O DIA DA SENHA ⚠️
-HORA_ALVO = 20
-MINUTO_ALVO = 30
+HORA_ALVO = 14
+MINUTO_ALVO = 2
 
 async def sniper_individual(conta, alvo):
     """Função otimizada para VELOCIDADE MÁXIMA (Modo Turbo)"""
@@ -93,7 +108,7 @@ async def sniper_individual(conta, alvo):
                 tentativa += 1
                 # Dorme APENAS 0.05s (50ms). Antes era 0.2s (200ms).
                 # Isso faz ele tentar 4x mais rápido.
-                await asyncio.sleep(0.020) 
+                await asyncio.sleep(0.010) 
                 
             except FloodWaitError as e:
                 print(f"🛑 {conta['nome']} FloodWait: {e.seconds}s (Esperando...)")
@@ -111,7 +126,7 @@ async def sniper_individual(conta, alvo):
 
 async def main():
     agora = datetime.datetime.now()
-    alvo = agora.replace(hour=HORA_ALVO, minute=MINUTO_ALVO, second=1, microsecond=300000)
+    alvo = agora.replace(hour=HORA_ALVO, minute=MINUTO_ALVO, second=0, microsecond=0)
     
     print(f"🔥 INICIANDO MODO TURBO ({len(CONTAS)} contas)")
     print(f"🎯 Alvo: {alvo.strftime('%H:%M:%S')}")
