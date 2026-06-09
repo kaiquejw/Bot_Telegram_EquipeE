@@ -15,19 +15,19 @@ CONTAS = [
 
 
 
-        # 20h30 SENHA NORMAL 🚨 -1002704903786
+        # 20h30 SENHA PREFERENCIAL -1003154989490
     {
-        "nome": "Viviane", 
-        "secret_name": "SESSION_VIVIANE",
-        "chat_id": -1002704903786,
-        "msg": "Viviane/coelho raio 3"
+        "nome": "Sara", 
+        "secret_name": "SESSION_SARA",
+        "chat_id": -5215567369,
+        "msg": "Sara esposa demorisval raio 1 cela 27 longa distância"
     },
 
 ]
 
 # ⚠️ AJUSTE AQUI PARA O DIA DA SENHA ⚠️
-HORA_ALVO = 20
-MINUTO_ALVO = 30
+HORA_ALVO = 19
+MINUTO_ALVO = 17
 
 async def sniper_individual(conta, alvo):
     """Função otimizada para VELOCIDADE MÁXIMA (Modo Turbo)"""
@@ -112,7 +112,7 @@ async def sniper_individual(conta, alvo):
 
 async def main():
     agora = datetime.datetime.now()
-    alvo = agora.replace(hour=HORA_ALVO, minute=MINUTO_ALVO, second=1, microsecond=350000)
+    alvo = agora.replace(hour=HORA_ALVO, minute=MINUTO_ALVO, second=0, microsecond=0)
     
     print(f"🔥 INICIANDO MODO TURBO ({len(CONTAS)} contas)")
     print(f"🎯 Alvo: {alvo.strftime('%H:%M:%S')}")
