@@ -17,31 +17,31 @@ CONTAS = [
     {
         "nome": "Rafa",
         "secret_name": "SESSION_RAFA",
-        "chat_id": -5230687258,
+        "chat_id": -1002742703600,
         "msg": "Rafaela X da morte r3"
     },
 
         #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
-    {
-        "nome": "Thaina",
-        "secret_name": "SESSION_THAINA",
-        "chat_id": -5283304962,
-        "msg": "Thaina X Daniel R2"
-    },
+    #{
+    #    "nome": "Thaina",
+    #    "secret_name": "SESSION_THAINA",
+    #    "chat_id": -1002443109385,
+    #    "msg": "Thaina X Daniel R2"
+    #},
 
         #  20h30 Grupo da senha PREFERENCIAL Flórida Paulista -1002459968766
-    {
-        "nome": "Scarlett",
-        "secret_name": "SESSION_SCARLETT",
-        "chat_id": -5123879477,
-        "msg": "ScarlettxDaniel raio 0"
-    },
+    #{
+    #    "nome": "Scarlett",
+    #    "secret_name": "SESSION_SCARLETT",
+    #    "chat_id": -1002459968766,
+    #    "msg": "ScarlettxDaniel raio 0"
+    #},
 
 ]
 
 # ⚠️ AJUSTE AQUI PARA O DIA DA SENHA ⚠️
-HORA_ALVO = 14
-MINUTO_ALVO = 20
+HORA_ALVO = 19
+MINUTO_ALVO = 00
 
 async def sniper_individual(conta, alvo):
     """Função otimizada para VELOCIDADE MÁXIMA (Modo Turbo)"""
