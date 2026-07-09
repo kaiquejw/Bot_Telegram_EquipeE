@@ -21,11 +21,19 @@ CONTAS = [
         "msg": "Evelin X R10 raio 6"
     },
 
+        #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
+    {
+        "nome": "Fabiana",
+        "secret_name": "SESSION_FABIANA",
+        "chat_id": -5406776473,
+        "msg": "Jeferson X Fabiana raio 4 cela 6 dobra"
+    },
+
 ]
 
 # ⚠️ AJUSTE AQUI PARA O DIA DA SENHA ⚠️
-HORA_ALVO = 15
-MINUTO_ALVO = 27
+HORA_ALVO = 16
+MINUTO_ALVO = 8
 
 async def sniper_individual(conta, alvo):
     """Função otimizada para VELOCIDADE MÁXIMA (Modo Turbo)"""
