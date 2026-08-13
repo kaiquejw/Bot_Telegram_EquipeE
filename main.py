@@ -22,25 +22,24 @@ TZ = ZoneInfo("America/Sao_Paulo")
 
 
 HORA_ALVO = 19
-MINUTO_ALVO = 0
+MINUTO_ALVO = 32
 SEGUNDO_ALVO = 0
 
 ANTECIPACAO_S = 0.0
-LAUNCH_INTERVAL = 0.030
+LAUNCH_INTERVAL = 0.025
 DESISTIR_APOS_S = 120
 
 
 
 CONTAS = [
 
-        #  19h00 Senha Normal (Dobra) 19:00 HS -1004417252531 
+        #  20h
     {
-        "nome": "Isa",
-        "secret_name": "SESSION_ISA",
-        "chat_id": -1004417252531,
-        "msg": "Isa/ NK R3"
+        "nome": "kaique",
+        "secret_name": "SESSION_KAIQUE",
+        "chat_id": -5186073583,
+        "msg": "testtttt"
     },
-
 
         #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
     #{
