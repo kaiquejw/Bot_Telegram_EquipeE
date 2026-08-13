@@ -21,8 +21,8 @@ API_HASH = os.environ.get('TELEGRAM_API_HASH')
 TZ = ZoneInfo("America/Sao_Paulo")  
 
 
-HORA_ALVO = 18
-MINUTO_ALVO = 32
+HORA_ALVO = 19
+MINUTO_ALVO = 0
 SEGUNDO_ALVO = 0
 
 ANTECIPACAO_S = 0.0
@@ -33,11 +33,11 @@ DESISTIR_APOS_S = 120
 
 CONTAS = [
 
-        #  19h00 Senha Normal (Dobra) 19:00 HS -100441725253
+        #  19h00 Senha Normal (Dobra) 19:00 HS -1004417252531 
     {
         "nome": "Isa",
         "secret_name": "SESSION_ISA",
-        "chat_id": -5174570129,
+        "chat_id": -1004417252531,
         "msg": "Isa/ NK R3"
     },
 
