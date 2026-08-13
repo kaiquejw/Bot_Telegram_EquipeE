@@ -1,144 +1,305 @@
 import asyncio
 import os
-import datetime
-from telethon import TelegramClient
+import time
+import random
+from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
+
+from telethon import TelegramClient, events, utils
 from telethon.sessions import StringSession
-from telethon.errors import ChatWriteForbiddenError, FloodWaitError
+from telethon.tl.functions.messages import SendMessageRequest
+from telethon.errors import (
+    ChatWriteForbiddenError,
+    FloodWaitError,
+    SlowModeWaitError,
+)
 
 # --- CONFIGURAÇÕES GERAIS ---
 API_ID = int(os.environ.get('TELEGRAM_API_ID'))
 API_HASH = os.environ.get('TELEGRAM_API_HASH')
 
-# --- LISTA DE ATIRADORES (EXÉRCITO) ---
-# ⚠️ MUDANÇA 1: JAQUELINE EM PRIMEIRO (PRIORIDADE MÁXIMA) ⚠️
+TZ = ZoneInfo("America/Sao_Paulo")  
+
+
+HORA_ALVO = 19
+MINUTO_ALVO = 0
+SEGUNDO_ALVO = 0
+
+ANTECIPACAO_S = 0.0
+LAUNCH_INTERVAL = 0.030
+DESISTIR_APOS_S = 120
+
+
+
 CONTAS = [
 
-        #  20h00 Grupo senha normal -1003601357589
+        #  19h00 P3 Anexo Normal -1002912888763
     {
-        "nome": "Evelin",
-        "secret_name": "SESSION_EVELIN",
-        "chat_id": -1003601357589,
-        "msg": "Evelin X R10 raio 6"
+        "nome": "Geovana",
+        "secret_name": "SESSION_GEOVANA",
+        "chat_id": -1002912888763,
+        "msg": "Bruna x João Victor 4x2 \n Giovana x João Victor 4x2" 
     },
 
-        #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
+        #  19h00 Senha Normal (Dobra) 19:00 HS -1004417252531
     {
-        "nome": "Fabiana",
-        "secret_name": "SESSION_FABIANA",
-        "chat_id": -1002443109385,
-        "msg": "Jeferson X Fabiana raio 4 cela 6 dobra"
+        "nome": "Rafa",
+        "secret_name": "SESSION_RAFA",
+        "chat_id": -1004417252531,
+        "msg": "Rafaela X da morte r3"
     },
+
+        #  20h00 SENHA NORMAL PARAGUAI 🇵🇾 -1003780200945
+    #{
+    #    "nome": "Caroline",
+    #    "secret_name": "SESSION_CAROLINE",
+    #    "chat_id": -1003780200945,
+    #    "msg": "Caroline xRuan Pv6 (N)"
+    #},
+
+        #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
+    #{
+    #    "nome": "Sabrina",
+    #    "secret_name": "SESSION_SABRINA",
+    #    "chat_id": -1002443109385,
+    #    "msg": "Sabrina x Léo R7"
+    #},
+
+        #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
+    #{
+    #    "nome": "Joice",
+    #    "secret_name": "SESSION_JOICE",
+    #    "chat_id": -1002443109385,
+    #    "msg": "Joyce /Guilherme R7 C5"
+    #},
+
+        #  20h30 Senha Grupo Normal -1003927816412
+    #{
+    #    "nome": "Juliana",
+    #    "secret_name": "SESSION_JULIANA",
+    #    "chat_id": -1003927816412,
+    #    "msg": "Juliana/Jota/R3"
+    #},
+
+        #  20h30 Senha Grupo Normal -1003927816412
+    #{
+    #    "nome": "Michele",
+    #    "secret_name": "SESSION_MICHELE",
+    #    "chat_id": -1003927816412,
+    #    "msg": "Michele x Paquistão raio 3"
+    #},
+
+        #  20h45 Senha Grupo Preferencial -1003552682244
+    #{
+    #    "nome": "Anne",
+    #    "secret_name": "SESSION_ANNE",
+    #    "chat_id": -1003552682244,
+    #    "msg": "Anny x JB R2"
+    #},
+
+        #  20h45 Senha Grupo Preferencial -1003552682244  
+    #{
+    #    "nome": "Jaqueline",
+    #    "secret_name": "SESSION_JAQUELINE",
+    #    "chat_id": -1003552682244,
+    #    "msg": "Jakeline x Daniel raio 3"
+    #},
 
 ]
 
-# ⚠️ AJUSTE AQUI PARA O DIA DA SENHA ⚠️
-HORA_ALVO = 20
-MINUTO_ALVO = 00
 
-async def sniper_individual(conta, alvo):
-    """Função otimizada para VELOCIDADE MÁXIMA (Modo Turbo)"""
-    
-    session_str = os.environ.get(conta['secret_name'])
-    if not session_str:
-        print(f"⚠️ Pulei {conta['nome']}: Segredo não encontrado.")
+def _refere_canal(update, canal_id):
+    if getattr(update, 'channel_id', None) == canal_id:
+        return True
+    if getattr(update, 'chat_id', None) == canal_id:
+        return True
+    peer = getattr(update, 'peer', None)
+    if peer is not None:
+        if getattr(peer, 'chat_id', None) == canal_id:
+            return True
+        if getattr(peer, 'channel_id', None) == canal_id:
+            return True
+    msg = getattr(update, 'message', None)
+    pid = getattr(msg, 'peer_id', None) if msg is not None else None
+    if pid is not None:
+        if getattr(pid, 'chat_id', None) == canal_id:
+            return True
+        if getattr(pid, 'channel_id', None) == canal_id:
+            return True
+    return False
+
+
+def _eh_fechado(e):
+    s = str(e).lower()
+    return ('plain' in s) or ('forbidden' in s and 'send' in s) \
+        or ('write' in s and 'forbidden' in s)
+
+
+async def disparar(client, peer, msg, nome, vencido, origem, contador, random_id):
+    if vencido.is_set():
         return
+    contador['n'] += 1
+    idx = contador['n']
+    t0 = time.monotonic()
+    try:
+        await client(SendMessageRequest(peer=peer, message=msg, random_id=random_id))
+        if not vencido.is_set():
+            vencido.set()
+            rtt = (time.monotonic() - t0) * 1000
+            agora = datetime.now(TZ).strftime('%H:%M:%S.%f')
+            print(f"🏆 {nome} ENVIOU via {origem}! tiro #{idx} "
+                  f"({agora}) rtt~{rtt:.0f}ms")
+    except ChatWriteForbiddenError:
+        pass
+    except FloodWaitError as e:
+        print(f"🛑 {nome} FLOOD {e.seconds}s -> aumente o LAUNCH_INTERVAL")
+        await asyncio.sleep(e.seconds)
+    except SlowModeWaitError as e:
+        if not vencido.is_set():
+            vencido.set()
+        print(f"🐌 {nome} slowmode {e.seconds}s (mensagem já enviada)")
+    except Exception as e:
+        if _eh_fechado(e):
+            pass
+        else:
+            print(f"⚠️ {nome} erro: {e}")
+            await asyncio.sleep(0.3)
 
-    client = TelegramClient(StringSession(session_str), API_ID, API_HASH)
-    chat_alvo_especifico = conta.get('chat_id')
 
+# --- FASE 1: só conecta e valida ---
+async def conectar(conta):
+    session = os.environ.get(conta['secret_name'])
+    if not session:
+        print(f"❌ {conta['nome']}: SESSION não encontrada no .env")
+        return None
+
+    client = TelegramClient(StringSession(session), API_ID, API_HASH)
     try:
         await client.connect()
-        # Força atualização dos diálogos para garantir que encontra o ID -1002704903786
         await client.get_dialogs()
-        
         if not await client.is_user_authorized():
-            print(f"❌ {conta['nome']}: Falha no Login.")
-            return
+            print(f"❌ {conta['nome']}: login falhou (não autorizado)")
+            await client.disconnect()
+            return None
 
-        print(f"✅ {conta['nome']} pronto. Alvo: {chat_alvo_especifico}")
-
-        # --- FASE 1: ESPERA (Modo Econômico) ---
-        # Fica dormindo até faltarem 30 segundos para não gastar CPU à toa
-        while (alvo - datetime.datetime.now()).total_seconds() > 30:
-            await asyncio.sleep(1)
-
-        print(f"⚠️ {conta['nome']} entrou em ALERTA MÁXIMO (Faltam < 30s)")
-
-        # --- FASE 2: AQUECIMENTO E DISPARO ---
-        enviado = False
-        tentativa = 0
-        
-        # Loop até enviar ou passar do tempo
-        while not enviado:
-            agora = datetime.datetime.now()
-            diferenca = (alvo - agora).total_seconds()
-
-            # Se já passou 2 minutos do horário, desiste.
-            if diferenca < -120: 
-                print(f"❌ {conta['nome']} Desistindo (Tempo esgotado).")
-                break
-
-            # ⚠️ MUDANÇA 2: ESPERA INTELIGENTE ⚠️
-            # Se faltar mais de 2 segundos, dorme um pouco.
-            # Isso evita que o robô tome FloodWait por tentar cedo demais.
-            if diferenca > 0.1:
-                await asyncio.sleep(0.01)
-                continue
-
-            # --- ZONA DE GUERRA (Faltam < 2 segundos ou já passou) ---
-            try:
-                # Tenta enviar!
-                await client.send_message(chat_alvo_especifico, conta['msg'])
-                
-                # Se passou daqui, ENVIOU!
-                enviado = True
-                print(f"🏆 {conta['nome']} -> ENVIOU! TENTATIVA {tentativa} ({datetime.datetime.now().strftime('%H:%M:%S.%f')})")
-                
-            except ChatWriteForbiddenError:
-                # ⚠️ MUDANÇA 3: REAÇÃO RÁPIDA ⚠️
-                # O GRUPO AINDA ESTÁ FECHADO.
-                tentativa += 1
-                # Dorme APENAS 0.05s (50ms). Antes era 0.2s (200ms).
-                # Isso faz ele tentar 4x mais rápido.
-                await asyncio.sleep(0.010) 
-                
-            except FloodWaitError as e:
-                print(f"🛑 {conta['nome']} FloodWait: {e.seconds}s (Esperando...)")
-                await asyncio.sleep(e.seconds)
-                
-            except Exception as e:
-                print(f"⚠️ Erro: {e}")
-                await asyncio.sleep(0.1)
+        peer = await client.get_input_entity(conta['chat_id'])
+        canal_id, _ = utils.resolve_id(conta['chat_id'])
+        random_id = random.randrange(-(2**63), 2**63 - 1)
+        print(f"✅ {conta['nome']} pronto | DC {client.session.dc_id} | canal {canal_id}")
+        return (client, peer, canal_id, random_id, conta)
 
     except Exception as e:
-        print(f"❌ Erro fatal {conta['nome']}: {e}")
+        print(f"❌ {conta['nome']}: erro ao conectar — {e}")
+        if client.is_connected():
+            await client.disconnect()
+        return None
+
+
+# --- FASE 2: dispara com client já conectado ---
+async def sniper(dados, alvo):
+    client, peer, canal_id, random_id, conta = dados
+    nome = conta['nome']
+    msg = conta['msg']
+    on_update = None
+    try:
+        vencido = asyncio.Event()
+        janela = {'on': False}
+        contador = {'n': 0}
+        pendentes = []
+
+        def fire(origem):
+            pendentes.append(asyncio.create_task(
+                disparar(client, peer, msg, nome, vencido, origem, contador, random_id)
+            ))
+
+        async def on_update(update):
+            if vencido.is_set() or not janela['on']:
+                return
+            try:
+                if _refere_canal(update, canal_id):
+                    fire('LISTENER')
+            except Exception:
+                pass
+        # client.add_event_handler(on_update, events.Raw)  # descomente p/ listener
+
+        while (alvo - datetime.now(TZ)).total_seconds() > 15:
+            await asyncio.sleep(1)
+        try:
+            await client.get_me()
+        except Exception:
+            pass
+
+        inicio = alvo - timedelta(seconds=ANTECIPACAO_S)
+        deadline = alvo + timedelta(seconds=DESISTIR_APOS_S)
+        while datetime.now(TZ) < inicio:
+            await asyncio.sleep(0.01)
+
+        janela['on'] = True
+        print(f"⚔️ {nome} ATIVO (só pipeline)")
+        while not vencido.is_set() and datetime.now(TZ) < deadline:
+            if not client.is_connected():
+                print(f"🔌 {nome} reconectando...")
+                try:
+                    await client.connect()
+                except Exception:
+                    await asyncio.sleep(1)
+                    continue
+            fire('PIPELINE')
+            await asyncio.sleep(LAUNCH_INTERVAL)
+
+        await asyncio.gather(*pendentes, return_exceptions=True)
+        if not vencido.is_set():
+            print(f"❌ {nome} não conseguiu (tempo esgotado).")
+
+    except Exception as e:
+        print(f"❌ Erro fatal {nome}: {e}")
     finally:
+        if on_update is not None:
+            try:
+                client.remove_event_handler(on_update, events.Raw)
+            except Exception:
+                pass
         if client.is_connected():
             await client.disconnect()
 
+
 async def main():
-    agora = datetime.datetime.now()
-    alvo = agora.replace(hour=HORA_ALVO, minute=MINUTO_ALVO, second=0, microsecond=0)
-    
-    print(f"🔥 INICIANDO MODO TURBO ({len(CONTAS)} contas)")
-    print(f"🎯 Alvo: {alvo.strftime('%H:%M:%S')}")
+    agora = datetime.now(TZ)
+    alvo = agora.replace(hour=HORA_ALVO, minute=MINUTO_ALVO,
+                         second=SEGUNDO_ALVO, microsecond=0)
+    if alvo < agora:
+        alvo += timedelta(days=1)
 
-    # Espera inicial para não gastar GitHub Actions à toa
-    while (alvo - datetime.datetime.now()).total_seconds() > 40:
-        restante = int((alvo - datetime.datetime.now()).total_seconds())
-        if restante % 30 == 0:
-            print(f"💤 Aguardando... Falta {restante}s")
-        await asyncio.sleep(5)
+    print(f"🎯 Alvo: {alvo.strftime('%d/%m %H:%M:%S')} BRT | "
+          f"agora {agora.strftime('%H:%M:%S')} | "
+          f"faltam {(alvo - agora).total_seconds():.0f}s")
+    print(f"⚙️  launch_interval={LAUNCH_INTERVAL}s | contas={len(CONTAS)}")
+    print(f"\n🔌 FASE 1 — Conectando contas...\n")
 
-    print("⚔️ PREPARANDO ATAQUE... (Faltam < 40s)")
-    
-    tarefas = []
-    for conta in CONTAS:
-        tarefas.append(sniper_individual(conta, alvo))
-    
-    await asyncio.gather(*tarefas)
+    resultados = await asyncio.gather(*(conectar(c) for c in CONTAS))
+
+    prontas = [r for r in resultados if r is not None]
+    falhas  = [CONTAS[i]['nome'] for i, r in enumerate(resultados) if r is None]
+
+    print(f"\n{'='*45}")
+    print(f"✅ Prontas ({len(prontas)}): {', '.join(d[4]['nome'] for d in prontas) or '—'}")
+    print(f"❌ Falharam ({len(falhas)}): {', '.join(falhas) or '—'}")
+    if falhas:
+        print(f"\n⚠️  {len(falhas)} conta(s) falharam!")
+        print(f"   Ctrl+C pra cancelar, corrigir e reiniciar.")
+    print(f"{'='*45}\n")
+
+    if not prontas:
+        print("❌ Nenhuma conta conectou. Encerrando.")
+        return
+
+    if falhas:
+        print(f"🛑 ENCERRANDO — corrija as contas acima e reinicie o bot.")
+        return
+
+    print(f"🚀 FASE 2 — Disparando com {len(prontas)} conta(s)...\n")
+    await asyncio.gather(*(sniper(d, alvo) for d in prontas))
+
 
 if __name__ == '__main__':
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
-    loop.run_until_complete(main())
+    asyncio.run(main())
