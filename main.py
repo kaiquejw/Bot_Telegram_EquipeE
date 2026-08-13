@@ -21,8 +21,8 @@ API_HASH = os.environ.get('TELEGRAM_API_HASH')
 TZ = ZoneInfo("America/Sao_Paulo")  
 
 
-HORA_ALVO = 19
-MINUTO_ALVO = 33
+HORA_ALVO = 20
+MINUTO_ALVO = 0
 SEGUNDO_ALVO = 0
 
 ANTECIPACAO_S = 0.0
@@ -33,29 +33,21 @@ DESISTIR_APOS_S = 120
 
 CONTAS = [
 
-        #  20h
+        #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
     {
-        "nome": "kaique",
-        "secret_name": "SESSION_KAIQUE",
-        "chat_id": -5186073583,
-        "msg": "testtttt"
+        "nome": "Joice",
+        "secret_name": "SESSION_JOICE",
+        "chat_id": -1002443109385,
+        "msg": "Joyce /Guilherme R7 C5"
     },
 
         #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
-    #{
-    #    "nome": "Joice",
-    #    "secret_name": "SESSION_JOICE",
-    #    "chat_id": -1002443109385,
-    #    "msg": "Joyce /Guilherme R7 C5"
-    #},
-
-        #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
-    #{
-    #    "nome": "Karine",
-    #    "secret_name": "SESSION_KARINE",
-    #    "chat_id": -1002443109385,
-    #    "msg": "Karine / Raridade R 8"
-    #},
+    {
+        "nome": "Karine",
+        "secret_name": "SESSION_KARINE",
+        "chat_id": -1002443109385,
+        "msg": "Karine / Raridade R 8"
+    },
 
 ]
 
