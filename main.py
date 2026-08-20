@@ -49,6 +49,14 @@ CONTAS = [
         "msg": "Anice x coveiro raio 4 dobra"
     },
 
+        #  20h00 Senha preferencial -1003714838499
+    {
+        "nome": "Ana",
+        "secret_name": "SESSION_ANA",
+        "chat_id": -1003714838499,
+        "msg": "Ana x messias r6(laudo)"
+    },
+
         #  20h30 Senha Grupo Normal -1003927816412
     #{
     #    "nome": "Luciana",
