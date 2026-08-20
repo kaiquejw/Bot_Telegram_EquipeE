@@ -21,8 +21,8 @@ API_HASH = os.environ.get('TELEGRAM_API_HASH')
 TZ = ZoneInfo("America/Sao_Paulo")  
 
 
-HORA_ALVO = 20
-MINUTO_ALVO = 45
+HORA_ALVO = 18
+MINUTO_ALVO = 36
 SEGUNDO_ALVO = 0
 
 ANTECIPACAO_S = 0.0
@@ -34,13 +34,69 @@ DESISTIR_APOS_S = 120
 CONTAS = [
 
 
-        #  20h45 Senha Grupo Preferencial -1003552682244  
+        #  19h00 GRUPO NORMAL SENHA LAVINIA 2 -1003625815869
     {
-        "nome": "VivianeBatore",
-        "secret_name": "SESSION_VIVIANEBATORE",
-        "chat_id": -1003552682244,
-        "msg": "Viviane x batoré raio 2"
+        "nome": "Jennifer",
+        "secret_name": "SESSION_JENNIFER",
+        "chat_id": -5093907746,
+        "msg": "Jennifer x Wanderson 5x8"
     },
+
+    #  19h00 GRUPO DA SENHA NORMAL- DOBRA P3 LAVINIA -1002717347777
+    {
+        "nome": "Isabelly",
+        "secret_name": "SESSION_ISABELLY",
+        "chat_id": -5231223349,
+        "msg": "Isabelly x Rene R0 C8"
+    },
+
+        #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
+    #{
+    #    "nome": "Anice",
+    #    "secret_name": "SESSION_ANICE",
+    #    "chat_id": -5535715396,
+    #    "msg": "Anice x coveiro raio 4 dobra"
+    #},
+
+        #  20h30 Senha Grupo Normal -1003927816412
+    #{
+    #    "nome": "Luciana",
+    #    "secret_name": "SESSION_LUCIANA",
+    #    "chat_id": -5263208911,
+    #    "msg": "Luciana x Primavera R2"
+    #},
+
+        #  20h30 Senha Grupo Normal -1003927816412
+    #{
+    #    "nome": "Aline",
+    #    "secret_name": "SESSION_ALINE",
+    #    "chat_id": -5340187988,
+    #    "msg": "Aline x capoeira r2"
+    #},
+
+        #  20h30 Senha Grupo Normal -1003927816412
+    #{
+    #    "nome": "Carol",
+    #    "secret_name": "SESSION_CAROL",
+    #    "chat_id": -5336863745,
+    #    "msg": "Carol x Lucas r3"
+    #},
+
+        #  20h45 Senha Grupo Preferencial -1003552682244
+    #{
+    #    "nome": "Tamires",
+    #    "secret_name": "SESSION_TAMIRES",
+    #    "chat_id": -5391035776,
+    #    "msg": "Tamires x Rodrigo R 3 (gestante)"
+    #},
+
+        #  21h00 Senha Grupo Bate Volta -1003993735474
+    #{
+    #    "nome": "Rose",
+    #    "secret_name": "SESSION_ROSE",
+    #    "chat_id": -5227729781,
+    #    "msg": "Rose Lk R 3"
+    #},
 
 ]
 
