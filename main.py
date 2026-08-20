@@ -22,11 +22,11 @@ TZ = ZoneInfo("America/Sao_Paulo")
 
 
 HORA_ALVO = 20
-MINUTO_ALVO = 30
+MINUTO_ALVO = 45
 SEGUNDO_ALVO = 0
 
 ANTECIPACAO_S = 0.0
-LAUNCH_INTERVAL = 0.028
+LAUNCH_INTERVAL = 0.030
 DESISTIR_APOS_S = 280
 
 
@@ -34,46 +34,13 @@ DESISTIR_APOS_S = 280
 CONTAS = [
 
 
-
-        #  20h30 Senha preferencial -1003714838499
-    {
-        "nome": "Ana",
-        "secret_name": "SESSION_ANA",
-        "chat_id": -1003714838499,
-        "msg": "Ana x messias r6(laudo)"
-    },
-
-        #  20h30 Senha Grupo Normal -1003927816412
-    {
-        "nome": "Luciana",
-        "secret_name": "SESSION_LUCIANA",
-        "chat_id": -1003927816412,
-        "msg": "Luciana x Primavera R2"
-    }, 
-
-        #  20h30 Senha Grupo Normal -1003927816412
-    {
-        "nome": "Aline",
-        "secret_name": "SESSION_ALINE",
-        "chat_id": -1003927816412,
-        "msg": "Aline x capoeira r2"
-    },
-
-        #  20h30 Senha Grupo Normal -1003927816412
-    {
-        "nome": "Carol",
-        "secret_name": "SESSION_CAROL",
-        "chat_id": -1003927816412,
-        "msg": "Carol x Lucas r3"
-    },
-
         #  20h45 Senha Grupo Preferencial -1003552682244
-    #{
-    #    "nome": "Tamires",
-    #    "secret_name": "SESSION_TAMIRES",
-    #    "chat_id": -5391035776,
-    #    "msg": "Tamires x Rodrigo R 3 (gestante)"
-    #},
+    {
+        "nome": "Tamires",
+        "secret_name": "SESSION_TAMIRES",
+        "chat_id": -1003552682244,
+        "msg": "Tamires x Rodrigo R 3 (gestante)"
+    },
 
         #  21h00 Senha Grupo Bate Volta -1003993735474
     #{
