@@ -21,42 +21,33 @@ API_HASH = os.environ.get('TELEGRAM_API_HASH')
 TZ = ZoneInfo("America/Sao_Paulo")  
 
 
-HORA_ALVO = 19
+HORA_ALVO = 20
 MINUTO_ALVO = 0
 SEGUNDO_ALVO = 0
 
 ANTECIPACAO_S = 0.0
 LAUNCH_INTERVAL = 0.030
-DESISTIR_APOS_S = 120
+DESISTIR_APOS_S = 280
 
 
 
 CONTAS = [
 
-
-        #  19h00 GRUPO NORMAL SENHA LAVINIA 2 -1003625815869
+        #  20h00 GRUPO NORMAL. -1004339638597
     {
-        "nome": "Jennifer",
-        "secret_name": "SESSION_JENNIFER",
-        "chat_id": -1003625815869,
-        "msg": "Jennifer x Wanderson 5x8"
-    },
-
-    #  19h00 GRUPO DA SENHA NORMAL- DOBRA P3 LAVINIA -1002717347777
-    {
-        "nome": "Isabelly",
-        "secret_name": "SESSION_ISABELLY",
-        "chat_id": -1002717347777,
-        "msg": "Isabelly x Rene R0 C8"
+        "nome": "Paola",
+        "secret_name": "SESSION_PAOLA",
+        "chat_id": -1004339638597,
+        "msg": "Paola mulher Matheus raio 4 cela 5 Dobra"
     },
 
         #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
-    #{
-    #    "nome": "Anice",
-    #    "secret_name": "SESSION_ANICE",
-    #    "chat_id": -5535715396,
-    #    "msg": "Anice x coveiro raio 4 dobra"
-    #},
+    {
+        "nome": "Anice",
+        "secret_name": "SESSION_ANICE",
+        "chat_id": -1002443109385,
+        "msg": "Anice x coveiro raio 4 dobra"
+    },
 
         #  20h30 Senha Grupo Normal -1003927816412
     #{
