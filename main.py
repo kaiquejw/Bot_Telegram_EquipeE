@@ -26,36 +26,22 @@ MINUTO_ALVO = 0
 SEGUNDO_ALVO = 0
 
 ANTECIPACAO_S = 0.0
-LAUNCH_INTERVAL = 0.030
+LAUNCH_INTERVAL = 0.025
 DESISTIR_APOS_S = 280
 
 
 
 CONTAS = [
 
-        #  20h00 GRUPO NORMAL. -1004339638597
-    {
-        "nome": "Paola",
-        "secret_name": "SESSION_PAOLA",
-        "chat_id": -1004339638597,
-        "msg": "Paola mulher Matheus raio 4 cela 5 Dobra"
-    },
 
-        #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
-    {
-        "nome": "Anice",
-        "secret_name": "SESSION_ANICE",
-        "chat_id": -1002443109385,
-        "msg": "Anice x coveiro raio 4 dobra"
-    },
 
         #  20h30 Senha preferencial -1003714838499
-    #{
-    #    "nome": "Ana",
-    #    "secret_name": "SESSION_ANA",
-    #    "chat_id": -1003714838499,
-    #    "msg": "Ana x messias r6(laudo)"
-    #},
+    {
+        "nome": "Ana",
+        "secret_name": "SESSION_ANA",
+        "chat_id": -5264198588,
+        "msg": "Ana x messias r6(laudo)"
+    },
 
         #  20h30 Senha Grupo Normal -1003927816412
     #{
