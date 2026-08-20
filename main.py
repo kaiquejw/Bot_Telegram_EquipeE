@@ -22,11 +22,11 @@ TZ = ZoneInfo("America/Sao_Paulo")
 
 
 HORA_ALVO = 20
-MINUTO_ALVO = 6
+MINUTO_ALVO = 30
 SEGUNDO_ALVO = 0
 
 ANTECIPACAO_S = 0.0
-LAUNCH_INTERVAL = 0.025
+LAUNCH_INTERVAL = 0.028
 DESISTIR_APOS_S = 280
 
 
@@ -39,33 +39,33 @@ CONTAS = [
     {
         "nome": "Ana",
         "secret_name": "SESSION_ANA",
-        "chat_id": -5264198588,
+        "chat_id": -1003714838499,
         "msg": "Ana x messias r6(laudo)"
     },
 
         #  20h30 Senha Grupo Normal -1003927816412
-    #{
-    #    "nome": "Luciana",
-    #    "secret_name": "SESSION_LUCIANA",
-    #    "chat_id": -5263208911,
-    #    "msg": "Luciana x Primavera R2"
-    #},
+    {
+        "nome": "Luciana",
+        "secret_name": "SESSION_LUCIANA",
+        "chat_id": -1003927816412,
+        "msg": "Luciana x Primavera R2"
+    }, 
 
         #  20h30 Senha Grupo Normal -1003927816412
-    #{
-    #    "nome": "Aline",
-    #    "secret_name": "SESSION_ALINE",
-    #    "chat_id": -5340187988,
-    #    "msg": "Aline x capoeira r2"
-    #},
+    {
+        "nome": "Aline",
+        "secret_name": "SESSION_ALINE",
+        "chat_id": -1003927816412,
+        "msg": "Aline x capoeira r2"
+    },
 
         #  20h30 Senha Grupo Normal -1003927816412
-    #{
-    #    "nome": "Carol",
-    #    "secret_name": "SESSION_CAROL",
-    #    "chat_id": -5336863745,
-    #    "msg": "Carol x Lucas r3"
-    #},
+    {
+        "nome": "Carol",
+        "secret_name": "SESSION_CAROL",
+        "chat_id": -1003927816412,
+        "msg": "Carol x Lucas r3"
+    },
 
         #  20h45 Senha Grupo Preferencial -1003552682244
     #{
