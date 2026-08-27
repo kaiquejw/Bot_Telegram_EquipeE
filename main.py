@@ -22,10 +22,10 @@ TZ = ZoneInfo("America/Sao_Paulo")
 
 
 HORA_ALVO = 20
-MINUTO_ALVO = 0
+MINUTO_ALVO = 30
 SEGUNDO_ALVO = 0
 
-ANTECIPACAO_S = 0.0
+ANTECIPACAO_S = 0.1
 LAUNCH_INTERVAL = 0.030
 DESISTIR_APOS_S = 280
 
@@ -34,37 +34,13 @@ DESISTIR_APOS_S = 280
 CONTAS = [
 
 
-        #  20h00 GRUPO NORMAL. -1004339638597
-    {
-        "nome": "Lucianee",
-        "secret_name": "SESSION_LUCIANE",
-        "chat_id": -1004339638597,
-        "msg": "Luciane x Felipe R 4 c 3"
-    },
-
-        #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
-    {
-        "nome": "Thaina",
-        "secret_name": "SESSION_THAINA",
-        "chat_id": -1002443109385,
-        "msg": "Thaina X ratão R2"
-    },
-
-        #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
-    {
-        "nome": "Aparecida",
-        "secret_name": "SESSION_APARECIDA",
-        "chat_id": -1002443109385,
-        "msg": "Aparecida x Manoel nenê raio 5 X 8"
-    },
-
         #  20h30 Senha Grupo Normal -1003927816412
-    #{
-    #    "nome": "Priscila",
-    #    "secret_name": "SESSION_PRISCILA",
-    #    "chat_id": -1003927816412,
-    #    "msg": "Priscila x Andre raio 4"
-    #},
+    {
+        "nome": "Priscila",
+        "secret_name": "SESSION_PRISCILA",
+        "chat_id": -1003927816412,
+        "msg": "Priscila x Andre raio 4"
+    },
 
         #  20h45 Senha Grupo Preferencial -1003552682244
     #{
