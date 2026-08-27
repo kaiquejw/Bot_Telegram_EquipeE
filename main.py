@@ -33,37 +33,30 @@ DESISTIR_APOS_S = 280
 
 CONTAS = [
 
-        #  19h00 Senha Normal (Dobra) 19:00 HS -1004417252531
-    {
-        "nome": "Rafa",
-        "secret_name": "SESSION_RAFA",
-        "chat_id": -1004417252531,
-        "msg": "Rafaela X da morte r3"
-    },
 
         #  20h00 GRUPO NORMAL. -1004339638597
-    #{
-    #    "nome": "Luciane",
-    #    "secret_name": "SESSION_LUCIANE",
-    #    "chat_id": -1004339638597,
-    #    "msg": "Luciane x Felipe R 4 c 3"
-    #},
+    {
+        "nome": "Luciane",
+        "secret_name": "SESSION_LUCIANE",
+        "chat_id": -1004339638597,
+        "msg": "Luciane x Felipe R 4 c 3"
+    },
 
         #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
-    #{
-    #    "nome": "Thaina",
-    #    "secret_name": "SESSION_THAINA",
-    #    "chat_id": -1002443109385,
-    #    "msg": "Thaina X ratão R2"
-    #},
+    {
+        "nome": "Thaina",
+        "secret_name": "SESSION_THAINA",
+        "chat_id": -1002443109385,
+        "msg": "Thaina X ratão R2"
+    },
 
         #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
-    #{
-    #    "nome": "Aparecida",
-    #    "secret_name": "SESSION_APARECIDA",
-    #    "chat_id": -1002443109385,
-    #    "msg": "Aparecida x Manoel nenê raio 5 X 8"
-    #},
+    {
+        "nome": "Aparecida",
+        "secret_name": "SESSION_APARECIDA",
+        "chat_id": -1002443109385,
+        "msg": "Aparecida x Manoel nenê raio 5 X 8"
+    },
 
         #  20h30 Senha Grupo Normal -1003927816412
     #{
