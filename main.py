@@ -21,24 +21,64 @@ API_HASH = os.environ.get('TELEGRAM_API_HASH')
 TZ = ZoneInfo("America/Sao_Paulo")  
 
 
-HORA_ALVO = 15
-MINUTO_ALVO = 26
+HORA_ALVO = 17
+MINUTO_ALVO = 55
 SEGUNDO_ALVO = 0
 
-ANTECIPACAO_S = 0.04
-LAUNCH_INTERVAL = 0.020
+ANTECIPACAO_S = 0.0
+LAUNCH_INTERVAL = 0.025
 DESISTIR_APOS_S = 280
 
 
 
 CONTAS = [
 
-        #  19h30 Senha normal impar vila independência -1003533574600
+        #  19h00 Senha Normal (Dobra) 19:00 HS -1004417252531
     {
-        "nome": "Thayna",
-        "secret_name": "SESSION_THAYNA",
-        "chat_id": -5188593476,
-        "msg": "Thayna R7 X C7 Marcoss"
+        "nome": "Rafa",
+        "secret_name": "SESSION_RAFA",
+        "chat_id": -5230687258,
+        "msg": "Rafaela X da morte r3"
+    },
+
+        #  19h00 GRUPO NORMAL. -1004339638597
+    {
+        "nome": "Luciane",
+        "secret_name": "SESSION_LUCIANE",
+        "chat_id": -5323628267,
+        "msg": "Luciane x Felipe R 4 c 3"
+    },
+
+        #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
+    {
+        "nome": "Thaina",
+        "secret_name": "SESSION_THAINA",
+        "chat_id": -1004431335449,
+        "msg": "Thaina X ratão R2"
+    },
+
+        #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
+    {
+        "nome": "Aparecida",
+        "secret_name": "SESSION_APARECIDA",
+        "chat_id": -5437473133,
+        "msg": "Aparecida x Manoel nenê raio 5 X 8"
+    },
+
+        #  20h30 Senha Grupo Normal -1003927816412
+    {
+        "nome": "Priscila",
+        "secret_name": "SESSION_PRISCILA",
+        "chat_id": -5405596646,
+        "msg": "Priscila x Andre raio 4"
+    },
+
+        #  20h45 Senha Grupo Preferencial -1003552682244
+    {
+        "nome": "Katia",
+        "secret_name": "SESSION_KATIA",
+        "chat_id": -5296287589,
+        "msg": "Katia pantanal r2 laudo"
     },
 
 ]
