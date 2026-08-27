@@ -22,10 +22,10 @@ TZ = ZoneInfo("America/Sao_Paulo")
 
 
 HORA_ALVO = 20
-MINUTO_ALVO = 30
+MINUTO_ALVO = 45
 SEGUNDO_ALVO = 0
 
-ANTECIPACAO_S = 0.1
+ANTECIPACAO_S = 0.0
 LAUNCH_INTERVAL = 0.030
 DESISTIR_APOS_S = 280
 
@@ -33,22 +33,13 @@ DESISTIR_APOS_S = 280
 
 CONTAS = [
 
-
-        #  20h30 Senha Grupo Normal -1003927816412
-    {
-        "nome": "Priscila",
-        "secret_name": "SESSION_PRISCILA",
-        "chat_id": -1003927816412,
-        "msg": "Priscila x Andre raio 4"
-    },
-
         #  20h45 Senha Grupo Preferencial -1003552682244
-    #{
-    #    "nome": "Katia",
-    #    "secret_name": "SESSION_KATIA",
-    #    "chat_id": -1003552682244,
-    #    "msg": "Katia pantanal r2 laudo"
-    #},
+    {
+        "nome": "Katia",
+        "secret_name": "SESSION_KATIA",
+        "chat_id": -1003552682244,
+        "msg": "Katia pantanal r2 laudo"
+    },
 
 ]
 
