@@ -45,7 +45,7 @@ CONTAS = [
     # {
     #     "nome": "Luciane",
     #     "secret_name": "SESSION_LUCIANE",
-    #     "chat_id": -1004368969674,
+    #     "chat_id": -1004339638597,
     #     "msg": "Luciane x Felipe R 4 c 3"
     # },
 
@@ -53,7 +53,7 @@ CONTAS = [
     # {
     #     "nome": "Gabyzinha",
     #     "secret_name": "SESSION_GABYZINHA",
-    #     "chat_id": -5001038132,
+    #     "chat_id": -1004339638597,
     #     "msg": "Gaby x Paraguaio \n Raio7x7dobra"
     # },
 
@@ -61,7 +61,7 @@ CONTAS = [
     # {
     #     "nome": "Luciana",
     #     "secret_name": "SESSION_LUCIANA",
-    #     "chat_id": -5263208911,
+    #     "chat_id": -1003927816412,
     #     "msg": "Luciana x Primavera R2"
     # },
 
@@ -69,7 +69,7 @@ CONTAS = [
     # {
     #     "nome": "Carol",
     #     "secret_name": "SESSION_CAROL",
-    #     "chat_id": -5336863745,
+    #     "chat_id": -1003927816412,
     #     "msg": "Carol x Lucas r3"
     # },
 
@@ -77,7 +77,7 @@ CONTAS = [
     # {
     #     "nome": "Tatiane",
     #     "secret_name": "SESSION_TATIANE",
-    #     "chat_id": -5117621304,
+    #     "chat_id": -1003927816412,
     #     "msg": "Tatiane x Adilson raio 5"
     # },
 
@@ -85,7 +85,7 @@ CONTAS = [
     # {
     #     "nome": "Tamires",
     #     "secret_name": "SESSION_TAMIRES",
-    #     "chat_id": -5391035776,
+    #     "chat_id": -1003552682244,
     #     "msg": "Tamires x Rodrigo R 3 (gestante)"
     # },
 
