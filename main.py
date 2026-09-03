@@ -21,7 +21,7 @@ API_HASH = os.environ.get('TELEGRAM_API_HASH')
 TZ = ZoneInfo("America/Sao_Paulo")  
 
 
-HORA_ALVO = 19
+HORA_ALVO = 20
 MINUTO_ALVO = 0
 SEGUNDO_ALVO = 0
 
@@ -33,29 +33,22 @@ DESISTIR_APOS_S = 280
 
 CONTAS = [
 
-        #  19h00 P3 Anexo Normal -1002912888763
-    {
-        "nome": "Giovana",
-        "secret_name": "SESSION_GIOVANA",
-        "chat_id": -1002912888763,
-         "msg": "Bruna x João Victor 4x2 \n Giovana x João Victor 4x2"
-    },
 
-    #     #  20h00 GRUPO NORMAL. -1004339638597
-    # {
-    #     "nome": "Luciane",
-    #     "secret_name": "SESSION_LUCIANE",
-    #     "chat_id": -1004339638597,
-    #     "msg": "Luciane x Felipe R 4 c 3"
-    # },
+         #  20h00 GRUPO NORMAL. -1004339638597
+     {
+         "nome": "Luciane",
+         "secret_name": "SESSION_LUCIANE",
+         "chat_id": -1004339638597,
+         "msg": "Luciane x Felipe R 4 c 3"
+     },
 
-    #     #  20h00 GRUPO NORMAL. -1004339638597
-    # {
-    #     "nome": "Gabyzinha",
-    #     "secret_name": "SESSION_GABYZINHA",
-    #     "chat_id": -1004339638597,
-    #     "msg": "Gaby x Paraguaio \n Raio7x7dobra"
-    # },
+         #  20h00 GRUPO NORMAL. -1004339638597
+     {
+         "nome": "Gabyzinha",
+         "secret_name": "SESSION_GABYZINHA",
+         "chat_id": -1004339638597,
+         "msg": "Gaby x Paraguaio \n Raio7x7dobra"
+     },
 
     #     #  20h30 Senha Grupo Normal -1003927816412
     # {
