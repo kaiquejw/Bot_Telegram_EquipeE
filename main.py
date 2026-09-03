@@ -22,7 +22,7 @@ TZ = ZoneInfo("America/Sao_Paulo")
 
 
 HORA_ALVO = 20
-MINUTO_ALVO = 30
+MINUTO_ALVO = 45
 SEGUNDO_ALVO = 0
 
 ANTECIPACAO_S = 0.0
@@ -33,38 +33,13 @@ DESISTIR_APOS_S = 280
 
 CONTAS = [
 
-
-         #  20h30 Senha Grupo Normal -1003927816412
+         #  20h45 Senha Grupo Preferencial -1003552682244
      {
-         "nome": "Luciana",
-         "secret_name": "SESSION_LUCIANA",
-         "chat_id": -1003927816412,
-         "msg": "Luciana x Primavera R2"
+         "nome": "Tamires",
+         "secret_name": "SESSION_TAMIRES",
+         "chat_id": -1003552682244,
+         "msg": "Tamires x Rodrigo R 3 (gestante)"
      },
-
-         #  20h30 Senha Grupo Normal -1003927816412
-     {
-         "nome": "Carol",
-         "secret_name": "SESSION_CAROL",
-         "chat_id": -1003927816412,
-         "msg": "Carol x Lucas r3"
-     },
-
-         #  20h30 Senha Grupo Normal -1003927816412
-     {
-         "nome": "Tatiane",
-         "secret_name": "SESSION_TATIANE",
-         "chat_id": -1003927816412,
-         "msg": "Tatiane x Adilson raio 5"
-     },
-
-    #     #  20h45 Senha Grupo Preferencial -1003552682244
-    # {
-    #     "nome": "Tamires",
-    #     "secret_name": "SESSION_TAMIRES",
-    #     "chat_id": -1003552682244,
-    #     "msg": "Tamires x Rodrigo R 3 (gestante)"
-    # },
 
 ]
 
