@@ -21,13 +21,13 @@ API_HASH = os.environ.get('TELEGRAM_API_HASH')
 TZ = ZoneInfo("America/Sao_Paulo")  
 
 
-HORA_ALVO = 19
-MINUTO_ALVO = 18
+HORA_ALVO = 20
+MINUTO_ALVO = 20
 SEGUNDO_ALVO = 0
 
 ANTECIPACAO_S = 0.0
 LAUNCH_INTERVAL = 0.035
-DESISTIR_APOS_S = 280
+DESISTIR_APOS_S = 100
 
 
 
@@ -37,7 +37,7 @@ CONTAS = [
     {
         "nome": "Larissa",
         "secret_name": "SESSION_LARISSA",
-        "chat_id": -5216542458,
+        "chat_id": -1002443109385,
         "msg": "Larissa x Lucas Raio 7"
     },
 
@@ -45,7 +45,7 @@ CONTAS = [
     {
         "nome": "Daiana",
         "secret_name": "SESSION_DAIANA",
-        "chat_id": -5546474274,
+        "chat_id": -1004355682842,
         "msg": "Daiana X Santista raio 5"
     },
 
