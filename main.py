@@ -21,8 +21,8 @@ API_HASH = os.environ.get('TELEGRAM_API_HASH')
 TZ = ZoneInfo("America/Sao_Paulo")  
 
 
-HORA_ALVO = 20
-MINUTO_ALVO = 45
+HORA_ALVO = 19
+MINUTO_ALVO = 18
 SEGUNDO_ALVO = 0
 
 ANTECIPACAO_S = 0.0
@@ -33,13 +33,37 @@ DESISTIR_APOS_S = 280
 
 CONTAS = [
 
-         #  20h45 Senha Grupo Preferencial -1003552682244
-     {
-         "nome": "Tamires",
-         "secret_name": "SESSION_TAMIRES",
-         "chat_id": -1003552682244,
-         "msg": "Tamires x Rodrigo R 3 (gestante)"
-     },
+        #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
+    {
+        "nome": "Larissa",
+        "secret_name": "SESSION_LARISSA",
+        "chat_id": -5216542458,
+        "msg": "Larissa x Lucas Raio 7"
+    },
+
+        #  20h00 Grupo normal Mira 2 -1004355682842
+    {
+        "nome": "Daiana",
+        "secret_name": "SESSION_DAIANA",
+        "chat_id": -5546474274,
+        "msg": "Daiana X Santista raio 5"
+    },
+
+    #     #  20h30 Senha Grupo Normal -1003927816412
+    # {
+    #     "nome": "Pamela",
+    #     "secret_name": "SESSION_PAMELA",
+    #     "chat_id": -1003927816412,
+    #     "msg": "Pamela x Magrelo R2"
+    # },
+
+    #     #  20h45 Senha Grupo Preferencial -1003552682244
+    # {
+    #     "nome": "Viviane",
+    #     "secret_name": "SESSION_VIVIANE",
+    #     "chat_id": -1003552682244,
+    #     "msg": "Viviane x batoré raio 2"
+    # },
 
 ]
 
