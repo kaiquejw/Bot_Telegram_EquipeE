@@ -22,7 +22,7 @@ TZ = ZoneInfo("America/Sao_Paulo")
 
 # ⚠️ AJUSTE PARA O DIA DA SENHA ⚠️
 HORA_ALVO = 15
-MINUTO_ALVO = 25
+MINUTO_ALVO = 48
 SEGUNDO_ALVO = 0
 
 # Quando o listener fica "armado" antes do horário (pra pegar abertura adiantada).
