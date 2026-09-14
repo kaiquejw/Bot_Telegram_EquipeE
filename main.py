@@ -1,28 +1,28 @@
 import asyncio
 import os
-import time
 import random
+import time
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
 from telethon import TelegramClient, events, utils
-from telethon.sessions import StringSession
-from telethon.tl.functions.messages import SendMessageRequest
 from telethon.errors import (
     ChatWriteForbiddenError,
     FloodWaitError,
     SlowModeWaitError,
 )
+from telethon.sessions import StringSession
+from telethon.tl.functions.messages import SendMessageRequest
 
 # --- CONFIGURAÇÕES GERAIS ---
-API_ID = int(os.environ.get('TELEGRAM_API_ID'))
-API_HASH = os.environ.get('TELEGRAM_API_HASH')
+API_ID = int(os.environ.get("TELEGRAM_API_ID"))
+API_HASH = os.environ.get("TELEGRAM_API_HASH")
 
 TZ = ZoneInfo("America/Sao_Paulo")
 
 # ⚠️ AJUSTE PARA O DIA DA SENHA ⚠️
-HORA_ALVO = 20
-MINUTO_ALVO = 0
+HORA_ALVO = 15
+MINUTO_ALVO = 25
 SEGUNDO_ALVO = 0
 
 # Quando o listener fica "armado" antes do horário (pra pegar abertura adiantada).
@@ -39,38 +39,37 @@ CONTAS = [
     {
         "nome": "Kaique",
         "secret_name": "SESSION_KAIQUE",
-        "chat_id": -5186073583,   # ⚠️ ID do grupo
+        "chat_id": -5186073583,
         "msg": "PRIMEIRO TESTE DE VELOCIDADE",
     },
-    
 ]
 
 
 def _ids_do_canal(chat_id):
     """Retorna todas as formas possíveis do id (cru e marcado) pra casar em qualquer update."""
-    cru, _ = utils.resolve_id(chat_id)      # id sem o -100
+    cru, _ = utils.resolve_id(chat_id)  # id sem o -100
     return {cru, chat_id, -cru, abs(chat_id)}
 
 
 def _refere_canal(update, ids):
     """True se o update fala do nosso grupo — cobre TODOS os formatos conhecidos."""
     # tenta vários atributos onde o id pode estar
-    for attr in ('channel_id', 'chat_id'):
+    for attr in ("channel_id", "chat_id"):
         v = getattr(update, attr, None)
         if v is not None and v in ids:
             return True
     # dentro de .peer
-    peer = getattr(update, 'peer', None)
+    peer = getattr(update, "peer", None)
     if peer is not None:
-        for attr in ('channel_id', 'chat_id'):
+        for attr in ("channel_id", "chat_id"):
             v = getattr(peer, attr, None)
             if v is not None and v in ids:
                 return True
     # dentro de .message.peer_id
-    msg = getattr(update, 'message', None)
-    pid = getattr(msg, 'peer_id', None) if msg is not None else None
+    msg = getattr(update, "message", None)
+    pid = getattr(msg, "peer_id", None) if msg is not None else None
     if pid is not None:
-        for attr in ('channel_id', 'chat_id'):
+        for attr in ("channel_id", "chat_id"):
             v = getattr(pid, attr, None)
             if v is not None and v in ids:
                 return True
@@ -79,8 +78,11 @@ def _refere_canal(update, ids):
 
 def _eh_fechado(e):
     s = str(e).lower()
-    return ('plain' in s) or ('forbidden' in s and 'send' in s) \
-        or ('write' in s and 'forbidden' in s)
+    return (
+        ("plain" in s)
+        or ("forbidden" in s and "send" in s)
+        or ("write" in s and "forbidden" in s)
+    )
 
 
 async def enviar_uma_vez(client, peer, msg, nome, random_id, vencido, t_evento):
@@ -95,7 +97,7 @@ async def enviar_uma_vez(client, peer, msg, nome, random_id, vencido, t_evento):
         t_done = time.monotonic()
         rtt = (t_done - t0) * 1000
         reacao = (t0 - t_evento) * 1000 if t_evento else -1
-        agora = datetime.now(TZ).strftime('%H:%M:%S.%f')
+        agora = datetime.now(TZ).strftime("%H:%M:%S.%f")
         print(f"🏆 {nome} ENVIOU! ({agora}) rtt~{rtt:.0f}ms | reação~{reacao:.1f}ms")
     except ChatWriteForbiddenError:
         vencido.clear()  # ainda fechado -> libera pra tentar de novo no próximo sinal
@@ -117,7 +119,7 @@ async def enviar_uma_vez(client, peer, msg, nome, random_id, vencido, t_evento):
 
 # --- FASE 1: conecta e valida ---
 async def conectar(conta):
-    session = os.environ.get(conta['secret_name'])
+    session = os.environ.get(conta["secret_name"])
     if not session:
         print(f"❌ {conta['nome']}: SESSION não encontrada no .env")
         return None
@@ -129,8 +131,8 @@ async def conectar(conta):
             print(f"❌ {conta['nome']}: login falhou (não autorizado)")
             await client.disconnect()
             return None
-        peer = await client.get_input_entity(conta['chat_id'])
-        ids = _ids_do_canal(conta['chat_id'])
+        peer = await client.get_input_entity(conta["chat_id"])
+        ids = _ids_do_canal(conta["chat_id"])
         random_id = random.randrange(-(2**63), 2**63 - 1)
         print(f"✅ {conta['nome']} pronto | DC {client.session.dc_id} | ids {ids}")
         return (client, peer, ids, random_id, conta)
@@ -144,35 +146,40 @@ async def conectar(conta):
 # --- FASE 2: só listener ---
 async def sniper(dados, alvo):
     client, peer, ids, random_id, conta = dados
-    nome = conta['nome']
-    msg = conta['msg']
+    nome = conta["nome"]
+    msg = conta["msg"]
     on_update = None
     try:
         vencido = asyncio.Event()
-        janela = {'on': False}
+        janela = {"on": False}
         pendentes = []
 
         async def on_update(update):
-            if not janela['on'] or vencido.is_set():
+            if not janela["on"] or vencido.is_set():
                 return
             try:
                 if _refere_canal(update, ids):
                     t_evento = time.monotonic()
                     if DEBUG_UPDATES:
-                        ag = datetime.now(TZ).strftime('%H:%M:%S.%f')
+                        ag = datetime.now(TZ).strftime("%H:%M:%S.%f")
                         print(f"📨 {nome} {ag} update: {type(update).__name__}")
-                    pendentes.append(asyncio.create_task(
-                        enviar_uma_vez(client, peer, msg, nome, random_id, vencido, t_evento)
-                    ))
+                    pendentes.append(
+                        asyncio.create_task(
+                            enviar_uma_vez(
+                                client, peer, msg, nome, random_id, vencido, t_evento
+                            )
+                        )
+                    )
             except Exception:
                 pass
+
         client.add_event_handler(on_update, events.Raw)
 
         # espera econômica
         while (alvo - datetime.now(TZ)).total_seconds() > 15:
             await asyncio.sleep(1)
         try:
-            await client.get_me()   # esquenta o socket
+            await client.get_me()  # esquenta o socket
         except Exception:
             pass
 
@@ -182,12 +189,14 @@ async def sniper(dados, alvo):
             r = (inicio - datetime.now(TZ)).total_seconds()
             await asyncio.sleep(0.05 if r > 0.5 else 0.005)
 
-        janela['on'] = True
+        janela["on"] = True
         print(f"👂 {nome} OUVINDO (listener puro)...")
 
         # Backup: se já estiver aberto ao armar, tenta uma vez na hora
         try:
-            await client(SendMessageRequest(peer=peer, message=msg, random_id=random_id))
+            await client(
+                SendMessageRequest(peer=peer, message=msg, random_id=random_id)
+            )
             vencido.set()
             print(f"🏆 {nome} ENVIOU (já estava aberto ao armar)")
         except Exception:
@@ -215,24 +224,31 @@ async def sniper(dados, alvo):
 
 async def main():
     agora = datetime.now(TZ)
-    alvo = agora.replace(hour=HORA_ALVO, minute=MINUTO_ALVO,
-                         second=SEGUNDO_ALVO, microsecond=0)
+    alvo = agora.replace(
+        hour=HORA_ALVO, minute=MINUTO_ALVO, second=SEGUNDO_ALVO, microsecond=0
+    )
     if alvo < agora:
         alvo += timedelta(days=1)
 
-    print(f"🎯 [LISTENER PURO] Alvo: {alvo.strftime('%d/%m %H:%M:%S')} BRT | "
-          f"agora {agora.strftime('%H:%M:%S')} | faltam {(alvo - agora).total_seconds():.0f}s")
-    print(f"⚙️  antecipacao={ANTECIPACAO_S}s | debug={DEBUG_UPDATES} | contas={len(CONTAS)}")
-    print(f"\n🔌 FASE 1 — Conectando contas...\n")
+    print(
+        f"🎯 [LISTENER PURO] Alvo: {alvo.strftime('%d/%m %H:%M:%S')} BRT | "
+        f"agora {agora.strftime('%H:%M:%S')} | faltam {(alvo - agora).total_seconds():.0f}s"
+    )
+    print(
+        f"⚙️  antecipacao={ANTECIPACAO_S}s | debug={DEBUG_UPDATES} | contas={len(CONTAS)}"
+    )
+    print("\n🔌 FASE 1 — Conectando contas...\n")
 
     resultados = await asyncio.gather(*(conectar(c) for c in CONTAS))
     prontas = [r for r in resultados if r is not None]
-    falhas  = [CONTAS[i]['nome'] for i, r in enumerate(resultados) if r is None]
+    falhas = [CONTAS[i]["nome"] for i, r in enumerate(resultados) if r is None]
 
-    print(f"\n{'='*45}")
-    print(f"✅ Prontas ({len(prontas)}): {', '.join(d[4]['nome'] for d in prontas) or '—'}")
+    print(f"\n{'=' * 45}")
+    print(
+        f"✅ Prontas ({len(prontas)}): {', '.join(d[4]['nome'] for d in prontas) or '—'}"
+    )
     print(f"❌ Falharam ({len(falhas)}): {', '.join(falhas) or '—'}")
-    print(f"{'='*45}\n")
+    print(f"{'=' * 45}\n")
 
     if not prontas:
         print("❌ Nenhuma conta conectou. Encerrando.")
@@ -245,5 +261,5 @@ async def main():
     await asyncio.gather(*(sniper(d, alvo) for d in prontas))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     asyncio.run(main())
