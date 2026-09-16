@@ -22,7 +22,7 @@ TZ = ZoneInfo("America/Sao_Paulo")
 
 # ⚠️ AJUSTE PARA O DIA DA SENHA ⚠️
 HORA_ALVO = 17
-MINUTO_ALVO = 3
+MINUTO_ALVO = 25
 SEGUNDO_ALVO = 0
 
 # Quando o listener fica "armado" antes do horário (pra pegar abertura adiantada).
@@ -39,7 +39,7 @@ CONTAS = [
     {
         "nome": "Jake",
         "secret_name": "SESSION_JAKE",
-        "chat_id": -5186073583,
+        "chat_id": -1004369874195,
         "msg": "Jakeline x Daniel raio 3",
     },
 ]
