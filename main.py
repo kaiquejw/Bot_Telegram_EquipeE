@@ -21,8 +21,8 @@ API_HASH = os.environ.get("TELEGRAM_API_HASH")
 TZ = ZoneInfo("America/Sao_Paulo")
 
 # ⚠️ AJUSTE PARA O DIA DA SENHA ⚠️
-HORA_ALVO = 16
-MINUTO_ALVO = 50
+HORA_ALVO = 17
+MINUTO_ALVO = 3
 SEGUNDO_ALVO = 0
 
 # Quando o listener fica "armado" antes do horário (pra pegar abertura adiantada).
