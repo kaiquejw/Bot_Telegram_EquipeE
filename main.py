@@ -21,8 +21,8 @@ API_HASH = os.environ.get("TELEGRAM_API_HASH")
 TZ = ZoneInfo("America/Sao_Paulo")
 
 # ⚠️ AJUSTE PARA O DIA DA SENHA ⚠️
-HORA_ALVO = 15
-MINUTO_ALVO = 48
+HORA_ALVO = 16
+MINUTO_ALVO = 13
 SEGUNDO_ALVO = 0
 
 # Quando o listener fica "armado" antes do horário (pra pegar abertura adiantada).
@@ -37,10 +37,10 @@ DEBUG_UPDATES = True
 
 CONTAS = [
     {
-        "nome": "Kaique",
-        "secret_name": "SESSION_KAIQUE",
-        "chat_id": -5186073583,
-        "msg": "PRIMEIRO TESTE DE VELOCIDADE",
+        "nome": "Jake",
+        "secret_name": "SESSION_JAKE",
+        "chat_id": -1003552682244,
+        "msg": "Jakeline x Daniel raio 3",
     },
 ]
 
