@@ -21,12 +21,12 @@ API_HASH = os.environ.get("TELEGRAM_API_HASH")
 TZ = ZoneInfo("America/Sao_Paulo")
 
 # ⚠️ AJUSTE PARA O DIA DA SENHA ⚠️
-HORA_ALVO = 16
-MINUTO_ALVO = 50
+HORA_ALVO = 19
+MINUTO_ALVO = 0
 SEGUNDO_ALVO = 0
 
 # Quando o listener fica "armado" antes do horário (pra pegar abertura adiantada).
-ANTECIPACAO_S = 2.0
+ANTECIPACAO_S = 1.0
 # Desiste este tempo depois do alvo, se o aviso de abertura nunca vier.
 DESISTIR_APOS_S = 180
 
@@ -41,7 +41,7 @@ CONTAS = [
     {
         "nome": "Jenniffer",
         "secret_name": "SESSION_JENNIFER",
-        "chat_id": -5093907746,
+        "chat_id": -1003625815869,
         "msg": "Jennifer x Wanderson 5x8",
     },
 
@@ -49,41 +49,41 @@ CONTAS = [
     {
         "nome": "Rafa",
         "secret_name": "SESSION_RAFA",
-        "chat_id": -1004345266538,
+        "chat_id": -1004417252531,
         "msg": "Claudia Fernanda X da morte r3",
     },
 
-        #  19h05 Grupo preferencial 19:05 horas -1004390796225
-    {
-        "nome": "Joyce",
-        "secret_name": "SESSION_JOYCE",
-        "chat_id": -1004470155249,   
-        "msg": "Maria x Ricardo R3",
-    },
+    #     #  19h05 Grupo preferencial 19:05 horas -1004390796225
+    # {
+    #     "nome": "Joyce",
+    #     "secret_name": "SESSION_JOYCE",
+    #     "chat_id": -1004390796225,   
+    #     "msg": "Maria x Ricardo R3",
+    # },
 
-        #  20h30 Senha Grupo Normal -1003927816412
-    {
-        "nome": "Michele",
-        "secret_name": "SESSION_MICHELE",
-        "chat_id": -1003944673656,
-        "msg": "Michele x Paquistao raio 3",
-    },
+    #     #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
+    # {
+    #     "nome": "Rose",
+    #     "secret_name": "SESSION_ROSE",
+    #     "chat_id": -1002443109385,
+    #     "msg": "Rose e Núbia x Tatá R8",
+    # },
 
-        #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
-    {
-        "nome": "Rose",
-        "secret_name": "SESSION_ROSE",
-        "chat_id": -5575370976,
-        "msg": "Rose e Núbia x Tatá R8",
-    },
+    #     #  20h30 Senha Grupo Normal -1003927816412
+    # {
+    #     "nome": "Michele",
+    #     "secret_name": "SESSION_MICHELE",
+    #     "chat_id": -1003927816412,
+    #     "msg": "Michele x Paquistao raio 3",
+    # },
 
-        #  20h45 Senha Grupo Preferencial -1003552682244
-    {
-        "nome": "Jake",
-        "secret_name": "SESSION_JAKE",
-        "chat_id": -1004369874195,
-        "msg": "Jakeline x Daniel raio 3",
-    },
+    #     #  20h45 Senha Grupo Preferencial -1003552682244
+    # {
+    #     "nome": "Jake",
+    #     "secret_name": "SESSION_JAKE",
+    #     "chat_id": -1003552682244,
+    #     "msg": "Jakeline x Daniel raio 3",
+    # },
 ]
 
 
