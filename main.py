@@ -21,8 +21,8 @@ API_HASH = os.environ.get("TELEGRAM_API_HASH")
 TZ = ZoneInfo("America/Sao_Paulo")
 
 # ⚠️ AJUSTE PARA O DIA DA SENHA ⚠️
-HORA_ALVO = 19
-MINUTO_ALVO = 5
+HORA_ALVO = 20
+MINUTO_ALVO = 45
 SEGUNDO_ALVO = 0
 
 # Quando o listener fica "armado" antes do horário (pra pegar abertura adiantada).
@@ -38,37 +38,13 @@ DEBUG_UPDATES = True
 CONTAS = [
 
 
-        #  19h05 Grupo preferencial 19:05 horas -1004390796225
+        #  20h45 Senha Grupo Preferencial -1003552682244
     {
-        "nome": "Joyce",
-        "secret_name": "SESSION_JOYCE",
-        "chat_id": -1004390796225,   
-        "msg": "Maria x Ricardo R3",
+        "nome": "Jake",
+        "secret_name": "SESSION_JAKE",
+        "chat_id": -1003552682244,
+        "msg": "Jakeline x Daniel raio 3",
     },
-
-    #     #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
-    # {
-    #     "nome": "Rose",
-    #     "secret_name": "SESSION_ROSE",
-    #     "chat_id": -1002443109385,
-    #     "msg": "Rose e Núbia x Tatá R8",
-    # },
-
-    #     #  20h30 Senha Grupo Normal -1003927816412
-    # {
-    #     "nome": "Michele",
-    #     "secret_name": "SESSION_MICHELE",
-    #     "chat_id": -1003927816412,
-    #     "msg": "Michele x Paquistao raio 3",
-    # },
-
-    #     #  20h45 Senha Grupo Preferencial -1003552682244
-    # {
-    #     "nome": "Jake",
-    #     "secret_name": "SESSION_JAKE",
-    #     "chat_id": -1003552682244,
-    #     "msg": "Jakeline x Daniel raio 3",
-    # },
 ]
 
 
