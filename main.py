@@ -26,7 +26,7 @@ MINUTO_ALVO = 45
 SEGUNDO_ALVO = 0
 
 # Quando o listener fica "armado" antes do horário (pra pegar abertura adiantada).
-ANTECIPACAO_S = 1.0
+ANTECIPACAO_S = 2.0
 # Desiste este tempo depois do alvo, se o aviso de abertura nunca vier.
 DESISTIR_APOS_S = 180
 
