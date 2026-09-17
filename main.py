@@ -21,8 +21,8 @@ API_HASH = os.environ.get("TELEGRAM_API_HASH")
 TZ = ZoneInfo("America/Sao_Paulo")
 
 # ⚠️ AJUSTE PARA O DIA DA SENHA ⚠️
-HORA_ALVO = 14
-MINUTO_ALVO = 15
+HORA_ALVO = 16
+MINUTO_ALVO = 50
 SEGUNDO_ALVO = 0
 
 # Quando o listener fica "armado" antes do horário (pra pegar abertura adiantada).
@@ -37,20 +37,36 @@ DEBUG_UPDATES = True
 
 CONTAS = [
 
+        #  19h00 GRUPO NORMAL SENHA LAVINIA 2 -1003625815869
+    {
+        "nome": "Jenniffer",
+        "secret_name": "SESSION_JENNIFER",
+        "chat_id": -5093907746,
+        "msg": "Jennifer x Wanderson 5x8",
+    },
+
         #  19h00 Senha Normal (Dobra) 19:00 HS -1004417252531
     {
         "nome": "Rafa",
         "secret_name": "SESSION_RAFA",
-        "chat_id": -5230687258,
-        "msg": "Claudia -Fernanda X da morte r3",
+        "chat_id": -1004345266538,
+        "msg": "Claudia Fernanda X da morte r3",
     },
 
         #  19h05 Grupo preferencial 19:05 horas -1004390796225
     {
         "nome": "Joyce",
         "secret_name": "SESSION_JOYCE",
-        "chat_id": -5233527582,   
+        "chat_id": -1004470155249,   
         "msg": "Maria x Ricardo R3",
+    },
+
+        #  20h30 Senha Grupo Normal -1003927816412
+    {
+        "nome": "Michele",
+        "secret_name": "SESSION_MICHELE",
+        "chat_id": -1003944673656,
+        "msg": "Michele x Paquistao raio 3",
     },
 
         #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
