@@ -22,7 +22,7 @@ TZ = ZoneInfo("America/Sao_Paulo")
 
 
 HORA_ALVO = 19
-MINUTO_ALVO = 5
+MINUTO_ALVO = 23
 SEGUNDO_ALVO = 0
 
 ANTECIPACAO_S = 0.0
@@ -31,14 +31,6 @@ DESISTIR_APOS_S = 120
 
 
 CONTAS = [
-
-    #  19h05  Grupo preferencial 19:05 horas -1004390796225
-    {
-        "nome": "Joyce",
-        "secret_name": "SESSION_JOYCE",
-        "chat_id": -1004390796225,
-        "msg": "Maria x Ricardo R3",
-    },
 
     #     #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
     # {
@@ -56,13 +48,13 @@ CONTAS = [
     #     "msg": "Carol x Lucas r3",
     # },
 
-    #     #  20h30 Senha Grupo Normal -1003927816412
-    # {
-    #     "nome": "Maura",
-    #     "secret_name": "SESSION_MAURA",
-    #     "chat_id": -5296504532,
-    #     "msg": "Maura x nenê raio 3",
-    # },
+        #  20h30 Senha Grupo Normal -1003927816412
+    {
+        "nome": "Maura",
+        "secret_name": "SESSION_MAURA",
+        "chat_id": -5296504532,
+        "msg": "Maura x nenê raio 3",
+    },
 
     #     #  21h00 Grupo da senha BATE VOLTA Flórida Paulista -1002443737706
     # {
