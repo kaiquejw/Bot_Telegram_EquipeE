@@ -20,62 +20,87 @@ API_HASH = os.environ.get("TELEGRAM_API_HASH")
 
 TZ = ZoneInfo("America/Sao_Paulo")
 
-# ⚠️ AJUSTE PARA O DIA DA SENHA ⚠️
-HORA_ALVO = 20
-MINUTO_ALVO = 45
+
+HORA_ALVO = 16
+MINUTO_ALVO = 40
 SEGUNDO_ALVO = 0
 
-# Quando o listener fica "armado" antes do horário (pra pegar abertura adiantada).
-ANTECIPACAO_S = 2.0
-# Desiste este tempo depois do alvo, se o aviso de abertura nunca vier.
-DESISTIR_APOS_S = 180
+ANTECIPACAO_S = 0.0
+LAUNCH_INTERVAL = 0.035
+DESISTIR_APOS_S = 120
 
-# DIAGNÓSTICO: se True, imprime TODOS os updates que chegam do grupo na janela.
-# Use True nos testes pra ver quais sinais o Telegram manda quando abre.
-# Use False em produção (print no meio atrasa um tiquinho).
-DEBUG_UPDATES = True
 
 CONTAS = [
 
-
-        #  20h45 Senha Grupo Preferencial -1003552682244
+    #  19h05  Grupo preferencial 19:05 horas -1004390796225
     {
-        "nome": "Jake",
-        "secret_name": "SESSION_JAKE",
-        "chat_id": -1003552682244,
-        "msg": "Jakeline x Daniel raio 3",
+        "nome": "Joyce",
+        "secret_name": "SESSION_JOYCE",
+        "chat_id": -1004470155249,
+        "msg": "Maria x Ricardo R3",
     },
+
+        #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
+    {
+        "nome": "Thaina",
+        "secret_name": "SESSION_THAINA",
+        "chat_id": -1004431335449,
+        "msg": "Thaina X ratão R7",
+    },
+
+        #  20h30 Senha Grupo Normal -1003927816412
+    {
+        "nome": "Carol",
+        "secret_name": "SESSION_CAROL",
+        "chat_id": -5336863745,
+        "msg": "Carol x Lucas r3",
+    },
+
+        #  20h30 Grupo da senha PREFERENCIAL Flórida Paulista -1002459968766
+    {
+        "nome": "Katia2",
+        "secret_name": "SESSION_KATIA2",
+        "chat_id": -5315543837,
+        "msg": "Katia x hiago r8",
+    },
+
+        #  21h00 Grupo da senha BATE VOLTA Flórida Paulista -1002443737706
+    {
+        "nome": "Kerollayne",
+        "secret_name": "SESSION_KEROLLAYNE",
+        "chat_id": -5469784112,
+        "msg": "kerollayne x mt r5",
+    },
+
+        #  21h20 Grupo bate volta mira 2 -1004430025840
+    {
+        "nome": "Giovana",
+        "secret_name": "SESSION_GIOVANA",
+        "chat_id": -5416409477,
+        "msg": "Giovana x branco raio 2",
+    },
+
 ]
 
 
-def _ids_do_canal(chat_id):
-    """Retorna todas as formas possíveis do id (cru e marcado) pra casar em qualquer update."""
-    cru, _ = utils.resolve_id(chat_id)  # id sem o -100
-    return {cru, chat_id, -cru, abs(chat_id)}
-
-
-def _refere_canal(update, ids):
-    """True se o update fala do nosso grupo — cobre TODOS os formatos conhecidos."""
-    # tenta vários atributos onde o id pode estar
-    for attr in ("channel_id", "chat_id"):
-        v = getattr(update, attr, None)
-        if v is not None and v in ids:
-            return True
-    # dentro de .peer
+def _refere_canal(update, canal_id):
+    if getattr(update, "channel_id", None) == canal_id:
+        return True
+    if getattr(update, "chat_id", None) == canal_id:
+        return True
     peer = getattr(update, "peer", None)
     if peer is not None:
-        for attr in ("channel_id", "chat_id"):
-            v = getattr(peer, attr, None)
-            if v is not None and v in ids:
-                return True
-    # dentro de .message.peer_id
+        if getattr(peer, "chat_id", None) == canal_id:
+            return True
+        if getattr(peer, "channel_id", None) == canal_id:
+            return True
     msg = getattr(update, "message", None)
     pid = getattr(msg, "peer_id", None) if msg is not None else None
     if pid is not None:
-        for attr in ("channel_id", "chat_id"):
-            v = getattr(pid, attr, None)
-            if v is not None and v in ids:
-                return True
+        if getattr(pid, "chat_id", None) == canal_id:
+            return True
+        if getattr(pid, "channel_id", None) == canal_id:
+            return True
     return False
 
 
@@ -88,44 +113,45 @@ def _eh_fechado(e):
     )
 
 
-async def enviar_uma_vez(client, peer, msg, nome, random_id, vencido, t_evento):
-    """Dispara UMA vez, o mais enxuto possível. Loga só DEPOIS do envio."""
+async def disparar(client, peer, msg, nome, vencido, origem, contador, random_id):
     if vencido.is_set():
         return
-    vencido.set()  # trava: só um envio por conta
+    contador["n"] += 1
+    idx = contador["n"]
     t0 = time.monotonic()
     try:
         await client(SendMessageRequest(peer=peer, message=msg, random_id=random_id))
-        # --- daqui pra baixo é só log, o envio já saiu ---
-        t_done = time.monotonic()
-        rtt = (t_done - t0) * 1000
-        reacao = (t0 - t_evento) * 1000 if t_evento else -1
-        agora = datetime.now(TZ).strftime("%H:%M:%S.%f")
-        print(f"🏆 {nome} ENVIOU! ({agora}) rtt~{rtt:.0f}ms | reação~{reacao:.1f}ms")
+        if not vencido.is_set():
+            vencido.set()
+            rtt = (time.monotonic() - t0) * 1000
+            agora = datetime.now(TZ).strftime("%H:%M:%S.%f")
+            print(
+                f"🏆 {nome} ENVIOU via {origem}! tiro #{idx} ({agora}) rtt~{rtt:.0f}ms"
+            )
     except ChatWriteForbiddenError:
-        vencido.clear()  # ainda fechado -> libera pra tentar de novo no próximo sinal
-        if DEBUG_UPDATES:
-            print(f"   {nome}: sinal veio mas grupo ainda fechado")
+        pass
     except FloodWaitError as e:
-        print(f"🛑 {nome} FLOOD {e.seconds}s")
+        print(f"🛑 {nome} FLOOD {e.seconds}s -> aumente o LAUNCH_INTERVAL")
+        await asyncio.sleep(e.seconds)
     except SlowModeWaitError as e:
-        print(f"🐌 {nome} slowmode {e.seconds}s (já enviada)")
+        if not vencido.is_set():
+            vencido.set()
+        print(f"🐌 {nome} slowmode {e.seconds}s (mensagem já enviada)")
     except Exception as e:
         if _eh_fechado(e):
-            vencido.clear()
-            if DEBUG_UPDATES:
-                print(f"   {nome}: sinal veio mas ainda fechado ({type(e).__name__})")
+            pass
         else:
-            vencido.clear()
             print(f"⚠️ {nome} erro: {e}")
+            await asyncio.sleep(0.3)
 
 
-# --- FASE 1: conecta e valida ---
+# --- FASE 1: só conecta e valida ---
 async def conectar(conta):
     session = os.environ.get(conta["secret_name"])
     if not session:
         print(f"❌ {conta['nome']}: SESSION não encontrada no .env")
         return None
+
     client = TelegramClient(StringSession(session), API_ID, API_HASH)
     try:
         await client.connect()
@@ -134,11 +160,15 @@ async def conectar(conta):
             print(f"❌ {conta['nome']}: login falhou (não autorizado)")
             await client.disconnect()
             return None
+
         peer = await client.get_input_entity(conta["chat_id"])
-        ids = _ids_do_canal(conta["chat_id"])
+        canal_id, _ = utils.resolve_id(conta["chat_id"])
         random_id = random.randrange(-(2**63), 2**63 - 1)
-        print(f"✅ {conta['nome']} pronto | DC {client.session.dc_id} | ids {ids}")
-        return (client, peer, ids, random_id, conta)
+        print(
+            f"✅ {conta['nome']} pronto | DC {client.session.dc_id} | canal {canal_id}"
+        )
+        return (client, peer, canal_id, random_id, conta)
+
     except Exception as e:
         print(f"❌ {conta['nome']}: erro ao conectar — {e}")
         if client.is_connected():
@@ -146,72 +176,70 @@ async def conectar(conta):
         return None
 
 
-# --- FASE 2: só listener ---
+# --- FASE 2: dispara com client já conectado ---
 async def sniper(dados, alvo):
-    client, peer, ids, random_id, conta = dados
+    client, peer, canal_id, random_id, conta = dados
     nome = conta["nome"]
     msg = conta["msg"]
     on_update = None
     try:
         vencido = asyncio.Event()
         janela = {"on": False}
+        contador = {"n": 0}
         pendentes = []
 
+        def fire(origem):
+            pendentes.append(
+                asyncio.create_task(
+                    disparar(
+                        client, peer, msg, nome, vencido, origem, contador, random_id
+                    )
+                )
+            )
+
         async def on_update(update):
-            if not janela["on"] or vencido.is_set():
+            if vencido.is_set() or not janela["on"]:
                 return
             try:
-                if _refere_canal(update, ids):
-                    t_evento = time.monotonic()
-                    if DEBUG_UPDATES:
-                        ag = datetime.now(TZ).strftime("%H:%M:%S.%f")
-                        print(f"📨 {nome} {ag} update: {type(update).__name__}")
-                    pendentes.append(
-                        asyncio.create_task(
-                            enviar_uma_vez(
-                                client, peer, msg, nome, random_id, vencido, t_evento
-                            )
-                        )
-                    )
+                if _refere_canal(update, canal_id):
+                    fire("LISTENER")
             except Exception:
                 pass
 
-        client.add_event_handler(on_update, events.Raw)
+        # client.add_event_handler(on_update, events.Raw)  # descomente p/ listener
 
-        # espera econômica
         while (alvo - datetime.now(TZ)).total_seconds() > 15:
             await asyncio.sleep(1)
         try:
-            await client.get_me()  # esquenta o socket
+            await client.get_me()
         except Exception:
             pass
 
         inicio = alvo - timedelta(seconds=ANTECIPACAO_S)
         deadline = alvo + timedelta(seconds=DESISTIR_APOS_S)
         while datetime.now(TZ) < inicio:
-            r = (inicio - datetime.now(TZ)).total_seconds()
-            await asyncio.sleep(0.05 if r > 0.5 else 0.005)
+            restante = (inicio - datetime.now(TZ)).total_seconds()
+            if restante > 0.5:
+                await asyncio.sleep(0.05)  # 50ms
+            else:
+                await asyncio.sleep(0.010)  # 0.5ms
 
         janela["on"] = True
-        print(f"👂 {nome} OUVINDO (listener puro)...")
-
-        # Backup: se já estiver aberto ao armar, tenta uma vez na hora
-        try:
-            await client(
-                SendMessageRequest(peer=peer, message=msg, random_id=random_id)
-            )
-            vencido.set()
-            print(f"🏆 {nome} ENVIOU (já estava aberto ao armar)")
-        except Exception:
-            pass  # fechado, ok — o listener cuida
-
-        # só espera o listener disparar (ou o tempo esgotar)
+        print(f"⚔️ {nome} ATIVO (só pipeline)")
         while not vencido.is_set() and datetime.now(TZ) < deadline:
-            await asyncio.sleep(0.02)
+            if not client.is_connected():
+                print(f"🔌 {nome} reconectando...")
+                try:
+                    await client.connect()
+                except Exception:
+                    await asyncio.sleep(1)
+                    continue
+            fire("PIPELINE")
+            await asyncio.sleep(LAUNCH_INTERVAL)
 
         await asyncio.gather(*pendentes, return_exceptions=True)
         if not vencido.is_set():
-            print(f"❌ {nome}: nada enviado — o sinal de abertura não veio/não casou.")
+            print(f"❌ {nome} não conseguiu (tempo esgotado).")
 
     except Exception as e:
         print(f"❌ Erro fatal {nome}: {e}")
@@ -234,15 +262,15 @@ async def main():
         alvo += timedelta(days=1)
 
     print(
-        f"🎯 [LISTENER PURO] Alvo: {alvo.strftime('%d/%m %H:%M:%S')} BRT | "
-        f"agora {agora.strftime('%H:%M:%S')} | faltam {(alvo - agora).total_seconds():.0f}s"
+        f"🎯 Alvo: {alvo.strftime('%d/%m %H:%M:%S')} BRT | "
+        f"agora {agora.strftime('%H:%M:%S')} | "
+        f"faltam {(alvo - agora).total_seconds():.0f}s"
     )
-    print(
-        f"⚙️  antecipacao={ANTECIPACAO_S}s | debug={DEBUG_UPDATES} | contas={len(CONTAS)}"
-    )
+    print(f"⚙️  launch_interval={LAUNCH_INTERVAL}s | contas={len(CONTAS)}")
     print("\n🔌 FASE 1 — Conectando contas...\n")
 
     resultados = await asyncio.gather(*(conectar(c) for c in CONTAS))
+
     prontas = [r for r in resultados if r is not None]
     falhas = [CONTAS[i]["nome"] for i, r in enumerate(resultados) if r is None]
 
@@ -251,16 +279,20 @@ async def main():
         f"✅ Prontas ({len(prontas)}): {', '.join(d[4]['nome'] for d in prontas) or '—'}"
     )
     print(f"❌ Falharam ({len(falhas)}): {', '.join(falhas) or '—'}")
+    if falhas:
+        print(f"\n⚠️  {len(falhas)} conta(s) falharam!")
+        print("   Ctrl+C pra cancelar, corrigir e reiniciar.")
     print(f"{'=' * 45}\n")
 
     if not prontas:
         print("❌ Nenhuma conta conectou. Encerrando.")
         return
+
     if falhas:
         print("🛑 ENCERRANDO — corrija as contas acima e reinicie o bot.")
         return
 
-    print(f"🚀 FASE 2 — Listener ativo com {len(prontas)} conta(s)...\n")
+    print(f"🚀 FASE 2 — Disparando com {len(prontas)} conta(s)...\n")
     await asyncio.gather(*(sniper(d, alvo) for d in prontas))
 
 
