@@ -21,8 +21,8 @@ API_HASH = os.environ.get("TELEGRAM_API_HASH")
 TZ = ZoneInfo("America/Sao_Paulo")
 
 
-HORA_ALVO = 19
-MINUTO_ALVO = 23
+HORA_ALVO = 20
+MINUTO_ALVO = 0
 SEGUNDO_ALVO = 0
 
 ANTECIPACAO_S = 0.0
@@ -32,35 +32,35 @@ DESISTIR_APOS_S = 120
 
 CONTAS = [
 
-    #     #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
-    # {
-    #     "nome": "Thaina",
-    #     "secret_name": "SESSION_THAINA",
-    #     "chat_id": -1004431335449,
-    #     "msg": "Thaina X ratão R7",
-    # },
+        #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
+    {
+        "nome": "Thaina",
+        "secret_name": "SESSION_THAINA",
+        "chat_id": -1002443109385,
+        "msg": "Thaina X ratão R7",
+    },
 
     #     #  20h30 Senha Grupo Normal -1003927816412
     # {
     #     "nome": "Carol",
     #     "secret_name": "SESSION_CAROL",
-    #     "chat_id": -5336863745,
+    #     "chat_id": -1003927816412,
     #     "msg": "Carol x Lucas r3",
     # },
 
-        #  20h30 Senha Grupo Normal -1003927816412
-    {
-        "nome": "Maura",
-        "secret_name": "SESSION_MAURA",
-        "chat_id": -5296504532,
-        "msg": "Maura x nenê raio 3",
-    },
+    #     #  20h30 Senha Grupo Normal -1003927816412
+    # {
+    #     "nome": "Maura",
+    #     "secret_name": "SESSION_MAURA",
+    #     "chat_id": -1003927816412,
+    #     "msg": "Maura x nenê raio 3",
+    # },
 
     #     #  21h00 Grupo da senha BATE VOLTA Flórida Paulista -1002443737706
     # {
     #     "nome": "Kerollayne",
     #     "secret_name": "SESSION_KEROLLAYNE",
-    #     "chat_id": -5469784112,
+    #     "chat_id": -1002443737706,
     #     "msg": "kerollayne x mt r5",
     # },
 
@@ -68,7 +68,7 @@ CONTAS = [
     # {
     #     "nome": "Giovana",
     #     "secret_name": "SESSION_GIOVANA",
-    #     "chat_id": -5416409477,
+    #     "chat_id": -1004430025840,
     #     "msg": "Giovana x branco raio 2",
     # },
 
