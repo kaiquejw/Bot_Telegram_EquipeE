@@ -21,12 +21,12 @@ API_HASH = os.environ.get("TELEGRAM_API_HASH")
 TZ = ZoneInfo("America/Sao_Paulo")
 
 
-HORA_ALVO = 21
-MINUTO_ALVO = 20
+HORA_ALVO = 22
+MINUTO_ALVO = 11
 SEGUNDO_ALVO = 0
 
 ANTECIPACAO_S = 0.0
-LAUNCH_INTERVAL = 0.035
+LAUNCH_INTERVAL = 0.02
 DESISTIR_APOS_S = 120
 
 
@@ -34,10 +34,10 @@ CONTAS = [
 
         #  21h20 Grupo bate volta mira 2 -1004430025840
     {
-        "nome": "Giovana",
-        "secret_name": "SESSION_GIOVANA",
-        "chat_id": -1004430025840,
-        "msg": "Giovana x branco raio 2",
+        "nome": "Jake",
+        "secret_name": "SESSION_JAKE",
+        "chat_id": -1004369874195,
+        "msg": "teste",
     },
 
 ]
