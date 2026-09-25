@@ -22,7 +22,7 @@ TZ = ZoneInfo("America/Sao_Paulo")
 
 
 HORA_ALVO = 21
-MINUTO_ALVO = 0
+MINUTO_ALVO = 20
 SEGUNDO_ALVO = 0
 
 ANTECIPACAO_S = 0.0
@@ -32,21 +32,13 @@ DESISTIR_APOS_S = 120
 
 CONTAS = [
 
-        #  21h00 Grupo da senha BATE VOLTA Flórida Paulista -1002443737706
+        #  21h20 Grupo bate volta mira 2 -1004430025840
     {
-        "nome": "Kerollayne",
-        "secret_name": "SESSION_KEROLLAYNE",
-        "chat_id": -1002443737706,
-        "msg": "kerollayne x mt r5",
+        "nome": "Giovana",
+        "secret_name": "SESSION_GIOVANA",
+        "chat_id": -1004430025840,
+        "msg": "Giovana x branco raio 2",
     },
-
-    #     #  21h20 Grupo bate volta mira 2 -1004430025840
-    # {
-    #     "nome": "Giovana",
-    #     "secret_name": "SESSION_GIOVANA",
-    #     "chat_id": -1004430025840,
-    #     "msg": "Giovana x branco raio 2",
-    # },
 
 ]
 
