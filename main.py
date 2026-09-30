@@ -32,11 +32,11 @@ DESISTIR_APOS_S = 120
 
 CONTAS = [
 
-        #  21h20 Grupo bate volta mira 2 -1004430025840
+        #   SENHA NORMAL- PARAGUAÇU PAULISTA | -1003953315177
     {
-        "nome": "Jake",
-        "secret_name": "SESSION_JAKE",
-        "chat_id": -1004369874195,
+        "nome": "ane rene",
+        "secret_name": "SESSION_ANE",
+        "chat_id": -5341996442,
         "msg": "teste",
     },
 
