@@ -22,7 +22,7 @@ TZ = ZoneInfo("America/Sao_Paulo")
 
 
 HORA_ALVO = 20
-MINUTO_ALVO = 20
+MINUTO_ALVO = 30
 SEGUNDO_ALVO = 0
 
 ANTECIPACAO_S = 0.0
@@ -32,21 +32,13 @@ DESISTIR_APOS_S = 120
 
 CONTAS = [
 
-        #  20h20 Grupo normal -1004315421373
+        #  20h30 Senha Grupo Normal -1003927816412
     {
-        "nome": "Juliana",
-        "secret_name": "SESSION_JULIANA",
-        "chat_id": -1004315421373,
-        "msg": "Juliana/Jota/B12",
+        "nome": "Carolline",
+        "secret_name": "SESSION_CAROLLINE",
+        "chat_id": -1003927816412,
+        "msg": "Carolline x Diego raio 2",
     },
-
-    #     #  20h30 Senha Grupo Normal -1003927816412
-    # {
-    #     "nome": "Carolline",
-    #     "secret_name": "SESSION_CAROLLINE",
-    #     "chat_id": -5451246845,
-    #     "msg": "Carolline x Diego raio 2",
-    # },
 
     #     #  21h00 SENHA NORMAL LADO PAR -1002973937899
     # {
