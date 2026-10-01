@@ -21,8 +21,8 @@ API_HASH = os.environ.get("TELEGRAM_API_HASH")
 TZ = ZoneInfo("America/Sao_Paulo")
 
 
-HORA_ALVO = 22
-MINUTO_ALVO = 11
+HORA_ALVO = 14
+MINUTO_ALVO = 10
 SEGUNDO_ALVO = 0
 
 ANTECIPACAO_S = 0.0
@@ -32,13 +32,45 @@ DESISTIR_APOS_S = 120
 
 CONTAS = [
 
-        #   SENHA NORMAL- PARAGUAÇU PAULISTA | -1003953315177
+        #   19H00 Senha Normal (Dobra) 19:00 HS 1004417252531
+    {
+        "nome": "Rafa",
+        "secret_name": "SESSION_RAFA",
+        "chat_id": -1004345266538,
+        "msg": "Rafaela X da morte r3",
+    },
+
+        #   19H05 Grupo preferencial 19:05 horas -1004390796225
+    {
+        "nome": "Joyce",
+        "secret_name": "SESSION_Joyce",
+        "chat_id": -1004470155249,
+        "msg": "Maria x Ricardo R3",
+    },
+
+        #  20h00 SENHA NORMAL- PARAGUAÇU PAULISTA -1003953315177
     {
         "nome": "ane rene",
         "secret_name": "SESSION_ANE",
         "chat_id": -5341996442,
-        "msg": "teste",
+        "msg": "Ana x Rene R6",
     },
+
+        #  20h20 Grupo normal -1004315421373
+    {
+        "nome": "Juliana",
+        "secret_name": "SESSION_JULIANA",
+        "chat_id": -5108358245,
+        "msg": "Juliana/Jota/B12",
+    }
+
+        #  20h30 Senha Grupo Normal -1003927816412
+    {
+        "nome": "Carolline",
+        "secret_name": "SESSION_CAROLLINE",
+        "chat_id": -5451246845,
+        "msg": "Carolline x Diego raio 2",
+    }
 
 ]
 
