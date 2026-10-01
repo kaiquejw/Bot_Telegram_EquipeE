@@ -21,18 +21,18 @@ API_HASH = os.environ.get("TELEGRAM_API_HASH")
 TZ = ZoneInfo("America/Sao_Paulo")
 
 
-HORA_ALVO = 14
-MINUTO_ALVO = 10
+HORA_ALVO = 18
+MINUTO_ALVO = 25
 SEGUNDO_ALVO = 0
 
 ANTECIPACAO_S = 0.0
-LAUNCH_INTERVAL = 0.02
+LAUNCH_INTERVAL = 0.35
 DESISTIR_APOS_S = 120
 
 
 CONTAS = [
 
-        #   19H00 Senha Normal (Dobra) 19:00 HS 1004417252531
+        #   19H00 Senha Normal (Dobra) 19:00 HS -1004417252531
     {
         "nome": "Rafa",
         "secret_name": "SESSION_RAFA",
@@ -40,37 +40,45 @@ CONTAS = [
         "msg": "Rafaela X da morte r3",
     },
 
-        #   19H05 Grupo preferencial 19:05 horas -1004390796225
-    {
-        "nome": "Joyce",
-        "secret_name": "SESSION_JOYCE",
-        "chat_id": -1004470155249,
-        "msg": "Maria x Ricardo R3",
-    },
+    #     #   19H05 Grupo preferencial 19:05 horas -1004390796225
+    # {
+    #     "nome": "Joyce",
+    #     "secret_name": "SESSION_JOYCE",
+    #     "chat_id": -1004390796225,
+    #     "msg": "Maria x Ricardo R3",
+    # },
 
-        #  20h00 SENHA NORMAL- PARAGUAÇU PAULISTA -1003953315177
-    {
-        "nome": "ane rene",
-        "secret_name": "SESSION_ANE",
-        "chat_id": -5341996442,
-        "msg": "Ana x Rene R6",
-    },
+    #     #  20h00 SENHA NORMAL- PARAGUAÇU PAULISTA -1003953315177
+    # {
+    #     "nome": "ane rene",
+    #     "secret_name": "SESSION_ANE",
+    #     "chat_id": -5341996442,
+    #     "msg": "Ana x Rene R6",
+    # },
 
-        #  20h20 Grupo normal -1004315421373
-    {
-        "nome": "Juliana",
-        "secret_name": "SESSION_JULIANA",
-        "chat_id": -5108358245,
-        "msg": "Juliana/Jota/B12",
-    },
+    #     #  20h20 Grupo normal -1004315421373
+    # {
+    #     "nome": "Juliana",
+    #     "secret_name": "SESSION_JULIANA",
+    #     "chat_id": -5108358245,
+    #     "msg": "Juliana/Jota/B12",
+    # },
 
-        #  20h30 Senha Grupo Normal -1003927816412
-    {
-        "nome": "Carolline",
-        "secret_name": "SESSION_CAROLLINE",
-        "chat_id": -5451246845,
-        "msg": "Carolline x Diego raio 2",
-    },
+    #     #  20h30 Senha Grupo Normal -1003927816412
+    # {
+    #     "nome": "Carolline",
+    #     "secret_name": "SESSION_CAROLLINE",
+    #     "chat_id": -5451246845,
+    #     "msg": "Carolline x Diego raio 2",
+    # },
+
+    #     #  21h00 SENHA NORMAL LADO PAR -1002973937899
+    # {
+    #     "nome": "Giovana",
+    #     "secret_name": "SESSION_GIOVANA",
+    #     "chat_id": -5416409477,
+    #     "msg": "Giovana x João Victor - 4x6 P3",
+    # },
 
 ]
 
@@ -200,12 +208,18 @@ async def sniper(dados, alvo):
 
         # client.add_event_handler(on_update, events.Raw)  # descomente p/ listener
 
+        # espera econômica até faltar ~15s
         while (alvo - datetime.now(TZ)).total_seconds() > 15:
             await asyncio.sleep(1)
-        try:
-            await client.get_me()
-        except Exception:
-            pass
+
+        # AQUECIMENTO: mantém a conexão quente até ~1,5s antes do alvo.
+        # get_me() é leitura — NÃO conta pro flood de envio.
+        while (alvo - datetime.now(TZ)).total_seconds() > 1.5:
+            try:
+                await client.get_me()
+            except Exception:
+                pass
+            await asyncio.sleep(0.5)
 
         inicio = alvo - timedelta(seconds=ANTECIPACAO_S)
         deadline = alvo + timedelta(seconds=DESISTIR_APOS_S)
