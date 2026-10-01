@@ -43,7 +43,7 @@ CONTAS = [
         #   19H05 Grupo preferencial 19:05 horas -1004390796225
     {
         "nome": "Joyce",
-        "secret_name": "SESSION_Joyce",
+        "secret_name": "SESSION_JOYCE",
         "chat_id": -1004470155249,
         "msg": "Maria x Ricardo R3",
     },
