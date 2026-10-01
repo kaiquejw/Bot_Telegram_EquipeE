@@ -62,7 +62,7 @@ CONTAS = [
         "secret_name": "SESSION_JULIANA",
         "chat_id": -5108358245,
         "msg": "Juliana/Jota/B12",
-    }
+    },
 
         #  20h30 Senha Grupo Normal -1003927816412
     {
@@ -70,7 +70,7 @@ CONTAS = [
         "secret_name": "SESSION_CAROLLINE",
         "chat_id": -5451246845,
         "msg": "Carolline x Diego raio 2",
-    }
+    },
 
 ]
 
