@@ -22,7 +22,7 @@ TZ = ZoneInfo("America/Sao_Paulo")
 
 
 HORA_ALVO = 19
-MINUTO_ALVO = 0
+MINUTO_ALVO = 5
 SEGUNDO_ALVO = 0
 
 ANTECIPACAO_S = 0.0
@@ -32,21 +32,15 @@ DESISTIR_APOS_S = 120
 
 CONTAS = [
 
-        #   19H00 Senha Normal (Dobra) 19:00 HS -1004417252531
-    {
-        "nome": "Rafa",
-        "secret_name": "SESSION_RAFA",
-        "chat_id": -1004417252531,
-        "msg": "Rafaela X da morte r3",
-    },
 
-    #     #   19H05 Grupo preferencial 19:05 horas -1004390796225
-    # {
-    #     "nome": "Joyce",
-    #     "secret_name": "SESSION_JOYCE",
-    #     "chat_id": -1004390796225,
-    #     "msg": "Maria x Ricardo R3",
-    # },
+
+        #   19H05 Grupo preferencial 19:05 horas -1004390796225
+    {
+        "nome": "Joyce",
+        "secret_name": "SESSION_JOYCE",
+        "chat_id": -1004390796225,
+        "msg": "Maria x Ricardo R3",
+    },
 
     #     #  20h00 SENHA NORMAL- PARAGUAÇU PAULISTA -1003953315177
     # {
