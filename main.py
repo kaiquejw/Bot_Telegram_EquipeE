@@ -21,8 +21,8 @@ API_HASH = os.environ.get("TELEGRAM_API_HASH")
 TZ = ZoneInfo("America/Sao_Paulo")
 
 
-HORA_ALVO = 19
-MINUTO_ALVO = 5
+HORA_ALVO = 20
+MINUTO_ALVO = 0
 SEGUNDO_ALVO = 0
 
 ANTECIPACAO_S = 0.0
@@ -32,23 +32,13 @@ DESISTIR_APOS_S = 120
 
 CONTAS = [
 
-
-
-        #   19H05 Grupo preferencial 19:05 horas -1004390796225
+        #  20h00 SENHA NORMAL- PARAGUAÇU PAULISTA -1003953315177
     {
-        "nome": "Joyce",
-        "secret_name": "SESSION_JOYCE",
-        "chat_id": -1004390796225,
-        "msg": "Maria x Ricardo R3",
+        "nome": "ane rene",
+        "secret_name": "SESSION_ANE",
+        "chat_id": -1003953315177,
+        "msg": "Ana x Rene R6",
     },
-
-    #     #  20h00 SENHA NORMAL- PARAGUAÇU PAULISTA -1003953315177
-    # {
-    #     "nome": "ane rene",
-    #     "secret_name": "SESSION_ANE",
-    #     "chat_id": -5341996442,
-    #     "msg": "Ana x Rene R6",
-    # },
 
     #     #  20h20 Grupo normal -1004315421373
     # {
@@ -205,15 +195,10 @@ async def sniper(dados, alvo):
         # espera econômica até faltar ~15s
         while (alvo - datetime.now(TZ)).total_seconds() > 15:
             await asyncio.sleep(1)
-
-        # AQUECIMENTO: mantém a conexão quente até ~1,5s antes do alvo.
-        # get_me() é leitura — NÃO conta pro flood de envio.
-        while (alvo - datetime.now(TZ)).total_seconds() > 1.5:
-            try:
-                await client.get_me()
-            except Exception:
-                pass
-            await asyncio.sleep(0.5)
+        try:
+            await client.get_me()
+        except Exception:
+            pass
 
         inicio = alvo - timedelta(seconds=ANTECIPACAO_S)
         deadline = alvo + timedelta(seconds=DESISTIR_APOS_S)
