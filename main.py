@@ -22,7 +22,7 @@ TZ = ZoneInfo("America/Sao_Paulo")
 
 
 HORA_ALVO = 20
-MINUTO_ALVO = 0
+MINUTO_ALVO = 20
 SEGUNDO_ALVO = 0
 
 ANTECIPACAO_S = 0.0
@@ -32,29 +32,13 @@ DESISTIR_APOS_S = 120
 
 CONTAS = [
 
-        #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
+        #  20h20 Grupo normal -1004315421373
     {
-        "nome": "Beatrizz",
-        "secret_name": "SESSION_BEATRIZZ",
-        "chat_id": -1002443109385,
-        "msg": "Beatriz X Wilson raio 4",
+        "nome": "Juliana",
+        "secret_name": "SESSION_JULIANA",
+        "chat_id": -1004315421373,
+        "msg": "Juliana/Jota/B12",
     },
-
-        #  20h00 Grupo normal Mira 2 -1004355682842
-    {
-        "nome": "Luciene",
-        "secret_name": "SESSION_LUCIENE",
-        "chat_id": -1004355682842,
-        "msg": "Luciene x JJ R5",
-    },
-
-    #     #  20h20 Grupo normal -1004315421373
-    # {
-    #     "nome": "Juliana",
-    #     "secret_name": "SESSION_JULIANA",
-    #     "chat_id": -1004315421373,
-    #     "msg": "Juliana/Jota/B12",
-    # },
 
 ]
 
