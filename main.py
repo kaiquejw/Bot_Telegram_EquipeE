@@ -21,8 +21,8 @@ API_HASH = os.environ.get("TELEGRAM_API_HASH")
 TZ = ZoneInfo("America/Sao_Paulo")
 
 
-HORA_ALVO = 19
-MINUTO_ALVO = 5
+HORA_ALVO = 20
+MINUTO_ALVO = 0
 SEGUNDO_ALVO = 0
 
 ANTECIPACAO_S = 0.0
@@ -32,30 +32,21 @@ DESISTIR_APOS_S = 120
 
 CONTAS = [
 
-
-        #  19h05 Grupo preferencial 19:05 horas -1004390796225
+        #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
     {
-        "nome": "Joyce",
-        "secret_name": "SESSION_JOYCE",
-        "chat_id": -1004390796225,
-        "msg": "Maria x Ricardo R3",
+        "nome": "Beatrizz",
+        "secret_name": "SESSION_BEATRIZZ",
+        "chat_id": -1002443109385,
+        "msg": "Beatriz X Wilson raio 4",
     },
 
-    #     #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
-    # {
-    #     "nome": "Beatrizz",
-    #     "secret_name": "SESSION_BEATRIZZ",
-    #     "chat_id": -1002443109385,
-    #     "msg": "Beatriz X Wilson raio 4",
-    # },
-
-    #     #  20h00 Grupo normal Mira 2 -1004355682842
-    # {
-    #     "nome": "Luciene",
-    #     "secret_name": "SESSION_LUCIENE",
-    #     "chat_id": -1004355682842,
-    #     "msg": "Luciene x JJ R5",
-    # },
+        #  20h00 Grupo normal Mira 2 -1004355682842
+    {
+        "nome": "Luciene",
+        "secret_name": "SESSION_LUCIENE",
+        "chat_id": -1004355682842,
+        "msg": "Luciene x JJ R5",
+    },
 
     #     #  20h20 Grupo normal -1004315421373
     # {
