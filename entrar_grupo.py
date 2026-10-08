@@ -9,10 +9,10 @@ API_ID = 31891041
 API_HASH = 'df20f87a534f0a73f437cb33985d1c95' 
 
 # Cole aqui a string gigante da conta que você quer colocar no grupo
-STRING_DA_SESSAO = '1AZWarzcBuwt4gVT-Wxd2lWea2cSF6kTmolpwfxwoL7A9AptnPzhB6UUVwo4vXCTmeOcEWTBfsxpJM5ABp0w95tUJW4fvPjeaHEVATecdx-yV_yYrA9U8lbMc5P0n5Xuphvxw5p5gZT0Yj9Y0qzs6GJVaIdgUb4zco77LNMyygPMSTleJyokM_Y_edIOBopZgERi_WZh6D6TilhHDJwmQto8ybTnVvoZqbZBQivqv3dBe9JcNMfGtg1An9suHXAPuwA_KO1-dmDseRlzYkbxQw2jXIt9BSlHrkBECT-Pd50btqQGxExLoiFwe2cKXGWk0YSe2su6OlTpk4mXW1Q94xJ8Jd_2v7TQ=' 
+STRING_DA_SESSAO = '1AZWarzcBu4Vz1pk7wG4BrNlw9eJ7GzT6e13cbrFAl3_3Tb9-9jS8r7uxrkEcD_FL5WUdn6tmXQkKtBxFAeAFYpFB4OZ5sho6lu9q9UVY0pdxB_9DxV8Fs38_Abs5L424wiFBO2bADd2a7NdL9VE2YfZtG9EpxRS4cmjkB5HzDbY44pmfyVti2xyTA3Auy205QSxcYSSYCP-noumrZrnOxHO6-jOsHG7eJ4yJ6wxB_-AWXfDeeJZez_lIi5pNhlcXuSW2zHGy6hBOzs1_1SuZQkRT8xSyUZ1RTkOqLJw5Srj4pq3I6zH80MsiBtRLQ9i7VaRi3XYUsxCL5cJzFnvPO0e5zTveO6w=' 
 
 # Link do grupo (ex: 'https://t.me/+XyZ123...' ou '@meugrupo')
-LINK_DO_GRUPO = 'https://t.me/+kBc0ls8gJ9c5NjBh'
+LINK_DO_GRUPO = 'https://t.me/+yxr8qg_LaFU4Yzkx'
 
 async def entrar_no_grupo():
     client = TelegramClient(StringSession(STRING_DA_SESSAO), API_ID, API_HASH)
