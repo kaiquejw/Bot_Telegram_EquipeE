@@ -22,11 +22,11 @@ TZ = ZoneInfo("America/Sao_Paulo")
 
 
 HORA_ALVO = 18
-MINUTO_ALVO = 15
+MINUTO_ALVO = 45
 SEGUNDO_ALVO = 0
 
 ANTECIPACAO_S = 0.0
-LAUNCH_INTERVAL = 0.035
+LAUNCH_INTERVAL = 0.030
 DESISTIR_APOS_S = 120
 
 
@@ -40,37 +40,37 @@ CONTAS = [
         "msg": "Jenniffer x Wanderson 3x7",
     },
 
-        #  19h05 Grupo preferencial 19:05 horas -1004390796225
-    {
-        "nome": "Joyce",
-        "secret_name": "SESSION_JOYCE",
-        "chat_id": -1004470155249,
-        "msg": "Maria x Ricardo R3",
-    },
+    #     #  19h05 Grupo preferencial 19:05 horas -1004390796225
+    # {
+    #     "nome": "Joyce",
+    #     "secret_name": "SESSION_JOYCE",
+    #     "chat_id": -1004390796225,
+    #     "msg": "Maria x Ricardo R3",
+    # },
 
-        #  20h00 Grupo da senha BATE VOLTA Flórida Paulista -1002443737706
-    {
-        "nome": "Beatrizz",
-        "secret_name": "SESSION_BEATRIZZ",
-        "chat_id": -5401410333,
-        "msg": "Beatriz X Wilson raio 4",
-    },
+    #     #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
+    # {
+    #     "nome": "Beatrizz",
+    #     "secret_name": "SESSION_BEATRIZZ",
+    #     "chat_id": -1002443109385,
+    #     "msg": "Beatriz X Wilson raio 4",
+    # },
 
-        #  20h00 Grupo normal Mira 2 -1004355682842
-    {
-        "nome": "Luciene",
-        "secret_name": "SESSION_LUCIENE",
-        "chat_id": -5180342486,
-        "msg": "Luciene x JJ R5",
-    },
+    #     #  20h00 Grupo normal Mira 2 -1004355682842
+    # {
+    #     "nome": "Luciene",
+    #     "secret_name": "SESSION_LUCIENE",
+    #     "chat_id": -1004355682842,
+    #     "msg": "Luciene x JJ R5",
+    # },
 
-        #  20h20 Grupo normal -1004315421373
-    {
-        "nome": "Juliana",
-        "secret_name": "SESSION_JULIANA",
-        "chat_id": -5108358245,
-        "msg": "Juliana/Jota/B12",
-    },
+    #     #  20h20 Grupo normal -1004315421373
+    # {
+    #     "nome": "Juliana",
+    #     "secret_name": "SESSION_JULIANA",
+    #     "chat_id": -1004315421373,
+    #     "msg": "Juliana/Jota/B12",
+    # },
 
 ]
 
