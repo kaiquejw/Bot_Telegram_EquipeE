@@ -22,31 +22,24 @@ TZ = ZoneInfo("America/Sao_Paulo")
 
 
 HORA_ALVO = 19
-MINUTO_ALVO = 0
+MINUTO_ALVO = 5
 SEGUNDO_ALVO = 0
 
 ANTECIPACAO_S = 0.0
-LAUNCH_INTERVAL = 0.030
+LAUNCH_INTERVAL = 0.035
 DESISTIR_APOS_S = 120
 
 
 CONTAS = [
 
-        #  19h00 GRUPO NORMAL SENHA LAVINIA 2 -1003625815869
-    {
-        "nome": "Jenniffer",
-        "secret_name": "SESSION_JENNIFFER",
-        "chat_id": -1003625815869,
-        "msg": "Jenniffer x Wanderson 3x7",
-    },
 
-    #     #  19h05 Grupo preferencial 19:05 horas -1004390796225
-    # {
-    #     "nome": "Joyce",
-    #     "secret_name": "SESSION_JOYCE",
-    #     "chat_id": -1004390796225,
-    #     "msg": "Maria x Ricardo R3",
-    # },
+        #  19h05 Grupo preferencial 19:05 horas -1004390796225
+    {
+        "nome": "Joyce",
+        "secret_name": "SESSION_JOYCE",
+        "chat_id": -1004390796225,
+        "msg": "Maria x Ricardo R3",
+    },
 
     #     #  20h00 Grupo da senha DOBRA Flórida Paulista -1002443109385
     # {
